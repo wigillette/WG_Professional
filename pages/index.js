@@ -4,7 +4,9 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Button from '@mui/material/Button';
+import Header from '../components/Header/Header.js';
+import Footer from '../components/Footer/Footer.js';
+import { Avatar } from '@mui/material';
 
 export default function Home() {
   return (
@@ -13,8 +15,13 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Button variant="contained">VIEW MORE</Button>
-      
+      <Header />
+      <Avatar
+        alt="William Gillette"
+        src='nextjs-blog/images/WillLinkedInB.jpg'
+        sx={{ width: 250, height: 250, margin: '0 auto' }}
+      />
+      <Footer />
     </div>
   );
 }
