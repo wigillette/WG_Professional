@@ -41,3 +41,5 @@ const descriptions = {
     'DATA-201': '',
     'STAT-443': ''
 }
+
+export default descriptions;

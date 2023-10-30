@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from '../styles/Coursework.module.css';
+import styles from '../../styles/Coursework.module.css';
 import { styled } from '@mui/material/styles';
-import RootLayout from '../components/Layout';
+import RootLayout from '../../components/Layout';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid } from '@mui/material';
-import courses from '../text/courses';
+import courses from '../../text/courses';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -60,9 +60,9 @@ export default function Coursework() {
       <div className={styles.Coursework}>
         <div className={styles.tableContainer}>
           <Grid container spacing={3}>
-            {Object.keys(courses).map((semesterId) => (
+            {Object.keys(courses).map((semesterId, i) => (
               <Grid item xs={6}>
-                <SemesterTable semesterLabel={semesterId} courses={courses[semesterId]} />
+                <SemesterTable key={i} semesterLabel={semesterId} courses={courses[semesterId]} />
               </Grid>
             ))}
           </Grid>
