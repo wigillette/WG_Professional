@@ -7,7 +7,7 @@ const courses = {
         ['CS-173', 'Introduction to Computer Science - AP', 'N/A', 'TR', 4]
     ],
     'S2021 | 4.0': [
-        ['CS-371', 'Data Structures and Algorithms', 'Dr. Christopher Tralie', 'A+', 4],
+        ['CS-371W', 'Data Structures and Algorithms', 'Dr. Christopher Tralie', 'A+', 4],
         ['SPAN-102', 'Elementary Spanish 2', 'Prof. Martha Davis', 'A+', 4],
         ['MATH-236W', 'Discrete Mathematics', 'Dr. Olena Kozhushkina', 'A', 4],
         ['CIE-200', 'Common Intellectual Experience 2', 'Dr. Matthew Kozusko', 'A', 4],
@@ -38,7 +38,7 @@ const courses = {
         ['CS-375', 'Software Engineering', 'Dr. Bill Mongan', 'A+', 4],
         ['CS-372', 'Digital Musical Audio Processing', 'Dr. Christopher Tralie', 'A+', 4],
         ['STAT-240', 'Computational Statistics', 'Dr. Christopher Assaid', 'A+', 4],
-        ['STAT-242', 'Statistics 2', 'Prof. Lisa Grossbauer', 'A', 4]
+        ['STAT-242W', 'Statistics 2', 'Prof. Lisa Grossbauer', 'A', 4]
     ],
     F2023: [
         ['CS-471', 'Computer Science Pedagogy', 'Dr. Bill Mongan', 'TBD', 4],
