@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../styles/Coursework.module.css';
 import { styled } from '@mui/material/styles';
 import RootLayout from '../../components/Layout';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid, Link } from '@mui/material';
 import courses from '../../text/courses';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -44,7 +44,7 @@ const SemesterTable = ({semesterLabel, courses}) => (
       {courses.map((course) => (
         <StyledTableRow key={course[0]}>
           {course.map((courseInfo, i) => (
-            <StyledTableCell>{i==0 ? <b>{courseInfo}</b> : courseInfo}</StyledTableCell>
+            <StyledTableCell>{i==0 ? <Link color="inherit" href={`/coursework/${courseInfo}`} sx={{fontFamily: 'Roboto Slab', textDecoration: 'none' }} >{courseInfo}</Link> : courseInfo}</StyledTableCell>
           ))}
         </StyledTableRow>))
       }

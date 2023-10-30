@@ -50,10 +50,11 @@ const courses = {
         ['MATH-335', 'Abstract Algebra', 'Dr. Nicholas Scoville', 'TBD', 4],
         ['MATH-442', 'Mathematical Statistics', 'Dr. Hugo Montesinos', 'TBD', 4],
         ['STAT-342', 'Applied Regression Models', 'Dr. Leslie New', 'TBD', 4],
+        ['STAT-142', 'R Lab', 'Dr. Leslie New', 'TBD', 1],
         ['ECON-102', 'Macroeconomics', 'Dr. Weinan Yan', 'TBD', 4]
     ],
     F2024: [
-        ['STAT-443', 'Statistical Modeling', 'TBD', 'TBD', 4],
+        ['STAT-443W', 'Statistical Modeling', 'TBD', 'TBD', 4],
         ['PHYS-111Q', 'General Physics 1', 'TBD', 'TBD', 3],
         ['PHYS-111L', 'General Physics 1 Lab', 'TBD', 'TBD', 1],
         ['DATA-201', 'Data Analytics', 'TBD', 'TBD', 4]

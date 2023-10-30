@@ -2,3 +2,22 @@
     width: 75%;
     margin: 0 auto;
 }
+
+.courseBreadcrumb {
+    margin: 0 auto;
+    padding: 1%;
+    margin-bottom: 4%;
+    border: 1px solid rgb(200,200,200);
+    border-radius: 10px;
+    background-color: rgb(245,245,245)
+}
+
+
+.breadcrumbLink:hover {
+    color: #FF8B28;
+    transition: 0.3s;
+}
+
+.breadcrumbLink {
+    transition: 0.3s;
+}

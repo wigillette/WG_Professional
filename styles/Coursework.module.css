@@ -2,3 +2,12 @@
     width: 90%;
     margin: 0 auto;
 }
+
+.cellLink:hover {
+    color: #FF8B28;
+    transition: 0.3s;
+}
+
+.cellLink {
+    transition: 0.3s;
+}
