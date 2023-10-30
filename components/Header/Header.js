@@ -17,7 +17,7 @@ import Link from '@mui/material/Link';
 const HeaderLink = ({icon, label, link}) => (
   <React.Fragment>
     <Icon size='large' color='inherit' children={icon} />
-    <Link className={styles.headerLabel} variant='h6' href={link} sx={{ mr: 2, ml: 0.5, textDecoration: 'none', color: 'inherit' }}>{label}</Link>
+    <Link className={styles.headerLabel} variant='h6' href={__dirname+link} sx={{ mr: 2, ml: 0.5, textDecoration: 'none', color: 'inherit' }}>{label}</Link>
   </React.Fragment>
 )
 
