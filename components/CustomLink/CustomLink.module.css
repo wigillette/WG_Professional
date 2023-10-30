@@ -1,0 +1,9 @@
+.CustomLink {
+    font-family: 'Roboto Slab' !important;
+    transition: 0.3s;
+}
+
+.CustomLink:hover {
+    color: #FFA500;
+    transition: 0.3s;
+}

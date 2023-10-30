@@ -4,15 +4,19 @@ import { styled } from '@mui/material/styles';
 import RootLayout from '../../components/Layout';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid, Link } from '@mui/material';
 import courses from '../../text/courses';
+import termGPAs from '../../text/termGPAs';
+import CustomLink from '../../components/CustomLink/CustomLink';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: 'maroon',
-    color: theme.palette.common.white,
-    fontSize: '1.1vw'
+    fontSize: '1.1vw',
+    fontFamily: 'Roboto Slab',
+    backgroundColor: '#EF5350',
+    color: 'white'
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: '90%',
+    fontSize: '70%',
+    fontFamily: 'Open Sans'
   },
 }));
 
@@ -31,20 +35,21 @@ const SemesterTable = ({semesterLabel, courses}) => (
   <Typography variant='h5' sx={{fontFamily: 'Roboto Slab', fontWeight: '600', mb: 1}}>{semesterLabel}</Typography>
   <TableContainer component={Paper}>
     <Table>
+      <caption className={styles.tableCaption}>{`Term GPA: ${Object.keys(termGPAs).includes(semesterLabel) ? termGPAs[semesterLabel] : 'N/A'}`}</caption>
       <TableHead>
         <TableRow>
-          <StyledTableCell sx={{fontFamily: 'Roboto Slab'}}>Course ID</StyledTableCell>
-          <StyledTableCell sx={{fontFamily: 'Roboto Slab'}}>Title</StyledTableCell>
-          <StyledTableCell sx={{fontFamily: 'Roboto Slab'}}>Instructor</StyledTableCell>
-          <StyledTableCell sx={{fontFamily: 'Roboto Slab'}}>Grade</StyledTableCell>
-          <StyledTableCell sx={{fontFamily: 'Roboto Slab'}}>Credits</StyledTableCell>
+          <StyledTableCell>ID</StyledTableCell>
+          <StyledTableCell>Title</StyledTableCell>
+          <StyledTableCell>Instructor</StyledTableCell>
+          <StyledTableCell>Grade</StyledTableCell>
+          <StyledTableCell>Credits</StyledTableCell>
         </TableRow>
       </TableHead>
       <TableBody>
       {courses.map((course) => (
         <StyledTableRow key={course[0]}>
           {course.map((courseInfo, i) => (
-            <StyledTableCell>{i==0 ? <Link color="inherit" href={`/coursework/${courseInfo}`} sx={{fontFamily: 'Roboto Slab', textDecoration: 'none' }} >{courseInfo}</Link> : courseInfo}</StyledTableCell>
+            <StyledTableCell key={i}>{i==0 ? <CustomLink href={`/coursework/${courseInfo}`} variant={'body2'}>{courseInfo}</CustomLink> : courseInfo}</StyledTableCell>
           ))}
         </StyledTableRow>))
       }

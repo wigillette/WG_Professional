@@ -6,6 +6,7 @@ import courseDescriptions from "../../text/courseDescriptions.js";
 import courses from "../../text/courses.js";
 import { Breadcrumbs, Divider, Typography, Link } from "@mui/material";
 import { CalendarMonth, School, NavigateNext } from "@mui/icons-material";
+import CustomLink from '../../components/CustomLink/CustomLink';
 
 
 const getCourseInfo = (courseId) => {
@@ -18,15 +19,12 @@ const getCourseInfo = (courseId) => {
 }
 
 const CourseBreadcrumb = ({courseId}) => (
-    <div className={styles.courseBreadcrumb}>
+    <div key={courseId}>
         <Breadcrumbs separator={<NavigateNext fontSize='small'/>}>
-            <Link className={styles.breadcrumbLink} sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Roboto Slab', textDecoration: 'none' }}
-                color="inherit"
-                href="/coursework"
-                >
+            <CustomLink sx={{ display: 'flex', alignItems: 'center'}} href="/coursework" mr={0}>
                 <CalendarMonth sx={{ mr: 0.5 }} fontSize="inherit" />
                 Coursework
-            </Link>
+            </CustomLink>
             <Typography
                 sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Roboto Slab' }}
                 color="text.primary"

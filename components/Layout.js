@@ -1,3 +1,4 @@
+import styles from "../styles/Layout.module.css"
 import Header from './Header/Header.js';
 import Footer from './Footer/Footer.js';
 import Head from 'next/head';
@@ -16,7 +17,7 @@ const RootLayout = ({ children }) => {
         </Head>
         <CssBaseline/>
         <Header />
-        <main>{children}</main>
+        <main className={styles.container}>{children}</main>
         <Footer />
     </>
   );
