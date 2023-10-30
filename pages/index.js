@@ -1,27 +1,24 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import Header from '../components/Header/Header.js';
-import Footer from '../components/Footer/Footer.js';
-import { Avatar } from '@mui/material';
+import React from 'react';
+import styles from '../styles/Main.module.css';
+import Avatar from '@mui/material/Avatar';
+import Divider from '@mui/material/Divider';
+import { Typography } from '@mui/material';
+import Biography from '../text/bio.js';
+import RootLayout from '../components/Layout';
 
-export default function Home() {
+export default function Main() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
-      <Avatar
-        alt="William Gillette"
-        src='nextjs-blog/images/WillLinkedInB.jpg'
-        sx={{ width: 250, height: 250, margin: '0 auto' }}
-      />
-      <Footer />
-    </div>
+    <RootLayout>
+      <div className={styles.Home}>
+        <Avatar
+          alt='William Gillette'
+          src='https://avatars.githubusercontent.com/u/71407898?v=4'
+          sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: '3vh' }}
+        />
+        <Typography className={styles.HomeHeader} sx={{fontFamily: 'Roboto Slab', margin: '0 auto', marginBottom: '3vh', textAlign:'center', fontSize: '2.5vh'}}>Triple Major in Mathematics, Computer Science, and Statistics, Student Athlete, Academic Chair of Phi Kappa Sigma, Lead Tutor in Math/CS/Statistics</Typography>
+        <Divider sx={{margin: '0 auto', marginBottom: '3vh'}} />
+        <Typography sx={{fontFamily: 'Open Sans'}}>{Biography}</Typography>
+      </div>
+    </RootLayout>
   );
 }

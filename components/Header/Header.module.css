@@ -1,1 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap");
+.headerLabel {
+    font-family: 'Roboto Slab' !important;
+    color: rgb(255,255,255);
+    transition: 0.3s;
+}
+
+.headerLabel:hover {
+    color: #FFA500;
+    transition: 0.3s;
+}

@@ -13,7 +13,8 @@
     "@mui/material": "^5.14.15",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.17.0"
   },
   "engines": {
     "node": ">=18"
