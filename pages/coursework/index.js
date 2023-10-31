@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../styles/Coursework.module.css';
 import { styled } from '@mui/material/styles';
 import RootLayout from '../../components/Layout';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid, Link } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid, Fade } from '@mui/material';
 import courses from '../../text/courses';
 import termGPAs from '../../text/termGPAs';
 import CustomLink from '../../components/CustomLink/CustomLink';
@@ -20,15 +20,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
+// const StyledTableRow = styled(TableRow)(({ theme }) => ({
+//   '&:nth-of-type(odd)': {
+//     backgroundColor: theme.palette.action.hover,
+//   },
+//   // hide last border
+//   '&:last-child td, &:last-child th': {
+//     border: 0,
+//   },
+// }));
 
 const SemesterTable = ({semesterLabel, courses}) => (
   <React.Fragment>
@@ -47,11 +47,11 @@ const SemesterTable = ({semesterLabel, courses}) => (
       </TableHead>
       <TableBody>
       {courses.map((course) => (
-        <StyledTableRow key={course[0]}>
+        <TableRow hover key={course[0]}>
           {course.map((courseInfo, i) => (
             <StyledTableCell key={i}>{i==0 ? <CustomLink href={`/coursework/${courseInfo}`} variant={'body2'}>{courseInfo}</CustomLink> : courseInfo}</StyledTableCell>
           ))}
-        </StyledTableRow>))
+        </TableRow>))
       }
       </TableBody>
     </Table>
@@ -64,13 +64,15 @@ export default function Coursework() {
     <RootLayout>
       <div className={styles.Coursework}>
         <div className={styles.tableContainer}>
-          <Grid container spacing={3}>
-            {Object.keys(courses).map((semesterId, i) => (
-              <Grid item xs={6}>
-                <SemesterTable key={i} semesterLabel={semesterId} courses={courses[semesterId]} />
-              </Grid>
-            ))}
-          </Grid>
+          <Fade in={true}>
+            <Grid container spacing={3}>
+              {Object.keys(courses).map((semesterId, i) => (
+                <Grid item xs={6}>
+                    <SemesterTable key={i} semesterLabel={semesterId} courses={courses[semesterId]} />
+                </Grid>
+              ))}
+            </Grid>
+          </Fade>
         </div>
       </div>
     </RootLayout>

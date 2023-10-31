@@ -7,7 +7,8 @@ import courses from "../../text/courses.js";
 import { Breadcrumbs, Divider, Typography, Link } from "@mui/material";
 import { CalendarMonth, School, NavigateNext } from "@mui/icons-material";
 import CustomLink from '../../components/CustomLink/CustomLink';
-
+import Carousel from "../../components/Carousel/Carousel.js";
+import carouselInfo from "../../text/carousel1Info.js";
 
 const getCourseInfo = (courseId) => {
     const semesterData = Object.values(courses).filter((semesterPlan) => {
@@ -36,7 +37,7 @@ const CourseBreadcrumb = ({courseId}) => (
     </div>
 )
 
-export default function coursePage({ params, searchParams }) {
+export default function coursePage() {
     const router = useRouter();
     const courseId = router.query.courseId;
 
@@ -51,6 +52,7 @@ export default function coursePage({ params, searchParams }) {
                 </React.Fragment>
                 : <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans', textAlign: 'center'}}>Invalid Course Id</Typography>
             }
+            <Carousel images={carouselInfo}></Carousel>
         </div>
     </RootLayout>)
 }
