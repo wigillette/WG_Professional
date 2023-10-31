@@ -1,10 +1,20 @@
 .headerLabel {
-    font-family: 'Roboto Slab' !important;
-    color: rgb(255,255,255);
-    transition: 0.3s;
+    font-family: 'Roboto Slab';
+    font-size: 1.5vw;
 }
 
-.headerLabel:hover {
-    color: #FFA500;
-    transition: 0.3s;
+.headerLinkLabel {
+    vertical-align: middle !important;
+}
+
+@media (max-width: 625px) {
+    .headerLinkLabel {
+        display: none;
+    }
+}
+
+@media (max-width: 250px) {
+    .headerLink {
+        display: none;
+    }
 }

@@ -1,7 +1,13 @@
-.tableContainer {
+.tableContainer, .projectsContainer {
     width: 90%;
     margin: 0 auto;
 }
+
+.projectsContainer {
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
 
 .tableCaption {
     font-family: 'Roboto Slab' !important;

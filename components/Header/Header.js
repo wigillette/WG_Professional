@@ -11,15 +11,13 @@ import School from '@mui/icons-material/School'
 import TravelExplore from '@mui/icons-material/TravelExplore'
 import RocketLaunch from '@mui/icons-material/RocketLaunch'
 import Icon from '@mui/material/Icon';
-import Link from '@mui/material/Link';
 import CustomLink from '../CustomLink/CustomLink';
 
 
 const HeaderLink = ({icon, label, link}) => (
-    <CustomLink mr={2} href={link}>
-      <Icon size='large' color='inherit' children={icon} sx={{mr: 1}}/>
-      {label}
-    </CustomLink>
+  <CustomLink mr={2} href={link}>
+    <Typography variant='h6' className={styles.headerLinkLabel} sx={{fontFamily: 'Roboto Slab'}}><Icon size='large' color='inherit' children={icon}></Icon>{' '+label}</Typography>
+  </CustomLink>
 )
 
 const Header = () => (
@@ -35,9 +33,7 @@ const Header = () => (
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={styles.headerLabel} variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            William Gillette
-          </Typography>
+          <Typography className={styles.headerLabel} variant="h6" component="div" sx={{ flexGrow: 1 }}>William Gillette</Typography>
           <HeaderLink icon={<Home/>} label='Home' link='/'/>
           <HeaderLink icon={<School/>} label='Coursework' link='/coursework'/>
           <HeaderLink icon={<TravelExplore/>} label='Experiences' link='/experiences'/>

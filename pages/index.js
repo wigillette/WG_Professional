@@ -17,6 +17,7 @@ export default function Main() {
         <Zoom in={true}>
           <Avatar
             alt='William Gillette'
+            className={styles.headshot}
             src={headshot}
             sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: '3vh' }}
           />
@@ -25,7 +26,7 @@ export default function Main() {
           <div>
             <Typography className={styles.HomeHeader} sx={{fontFamily: 'Roboto Slab', margin: '0 auto', marginBottom: '3vh', textAlign:'center', fontSize: '2.5vh'}}>Triple Major in Mathematics, Computer Science, and Statistics, Student Athlete, Academic Chair of Phi Kappa Sigma, Lead Tutor in Math/CS/Statistics</Typography>
             <Divider sx={{margin: '0 auto', marginBottom: '3vh'}} />
-            <Typography sx={{fontFamily: 'Open Sans'}}>{Biography}</Typography>
+            <Typography paragraph sx={{fontFamily: 'Open Sans'}}>{Biography}</Typography>
           </div>
         </Fade>
       </div>
