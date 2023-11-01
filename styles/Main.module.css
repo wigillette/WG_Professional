@@ -3,7 +3,7 @@
   width: 50%;
 }
 
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 625px) {
   .Home {
       width: 90%;
   }
