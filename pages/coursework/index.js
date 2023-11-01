@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 import relevantCourses from '../../text/relevantCourses';
 import CustomLink from '../../components/CustomLink/CustomLink';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
-import { projects, projectTech } from '../../text/projects';
+import { projects, projectTech, projectMedia } from '../../text/projects';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -62,17 +62,20 @@ export default function Coursework() {
   return (
     <RootLayout>
       <div className={styles.Coursework}>
-        <Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} textAlign='center' sx={{margin: '0 auto'}}>Independent Research and Project Portfolio</Typography>
+        <Fade in={true}>
+          <Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} textAlign='center' sx={{margin: '0 auto'}}>Independent Research and Project Portfolio</Typography>
+        </Fade>
         <div className={styles.projectsContainer}>
           <Grid container spacing={3}>
             {Object.entries(projects).map((project) => (
-              <Grid key={project[0]} item xs={6} sm={4} lg={3}>
+              <Grid key={project[0]} item xs={12} sm={6} lg={3}>
                 <ProjectCard title={project[0]} 
                   date={project[1][0]} 
                   image={project[1][1]} 
                   caption={project[1][2]} 
                   description={project[1][3]} 
-                  tech={projectTech[project[0]] || []}
+                  tech={Object.keys(projectTech).includes(project[0]) ? projectTech[project[0]] : []}
+                  media={Object.keys(projectMedia).includes(project[0]) ? projectMedia[project[0]] : {}}
                 />
               </Grid>
               ))}

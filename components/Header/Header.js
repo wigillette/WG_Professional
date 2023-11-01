@@ -28,6 +28,7 @@ const Header = () => (
             size="large"
             edge="start"
             color="inherit"
+            className={styles.mobileMenu}
             aria-label="menu"
             sx={{ mr: 2 }}
           >

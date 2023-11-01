@@ -7,9 +7,21 @@
     vertical-align: middle !important;
 }
 
+.mobileMenu {
+    display: none;
+}
+
 @media (max-width: 625px) {
     .headerLinkLabel {
         display: none;
+    }
+
+    .mobileMenu {
+        display: flex;
+    }
+
+    .headerLabel {
+        font-size: 2vh;
     }
 }
 

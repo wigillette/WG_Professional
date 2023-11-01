@@ -12,6 +12,8 @@ import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { YouTube, Web } from '@mui/icons-material';
+import { Grow } from '@mui/material';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -24,7 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function ProjectCard({title, date, image, caption, description, tech}) {
+export default function ProjectCard({title, date, image, caption, description, tech, media}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -32,42 +34,49 @@ export default function ProjectCard({title, date, image, caption, description, t
   };
 
   return (
-    <Card sx={{ maxWidth: '100%' }}>
-      <CardHeader
-        className={styles.cardHeader}
-        title={title}
-        subheader={date}
-      />
-      <Stack direction='row' mr={1} ml={1} mb={1} alignContent={'center'} sx={{flexWrap: 'wrap'}}>
-        {tech.map((skill) => <Chip color="primary" label={skill} sx={{fontFamily: 'Open Sans', mr: 0.5, mb: 0.5}}/>)}
-      </Stack>
-      <CardMedia
-        component="img"
-        height="200"
-        image={image}
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary" fontFamily={'Open Sans'}>
-          {caption}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+    <Grow in={true}>
+      <Card sx={{ maxWidth: '100%' }}>
+        <CardHeader
+          className={styles.cardHeader}
+          title={title}
+          subheader={date}
+        />
+        <Stack direction='row' ml={2} mb={1} alignContent={'center'} sx={{flexWrap: 'wrap'}}>
+          {tech.map((skill) => <Chip color="primary" label={skill} sx={{fontFamily: 'Open Sans', mr: 0.5, mb: 0.5}}/>)}
+        </Stack>
+        <CardMedia
+          component="img"
+          height="200"
+          image={image}
+        />
         <CardContent>
-          <Typography paragraph fontFamily={'Open Sans'}>
-            {description}
+          <Typography variant="body2" color="text.secondary" fontFamily={'Open Sans'}>
+            {caption}
           </Typography>
         </CardContent>
-      </Collapse>
-    </Card>
+        
+          <CardActions disableSpacing>
+            {Object.keys(media).includes('site') && <IconButton color="secondary" href={media.site}><Web/></IconButton>}
+            {Object.keys(media).includes('video') && <IconButton color="error" href={media.video}><YouTube/></IconButton>}
+            {description && 
+              <ExpandMore
+                expand={expanded}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </ExpandMore>
+            }
+          </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph fontFamily={'Open Sans'}>
+              {description}
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    </Grow>
   );
 }
