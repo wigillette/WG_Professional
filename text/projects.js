@@ -6,7 +6,7 @@ export const projects = {
 }
 
 export const projectTech = {
-    'Convex Hull Visualization': ['Javascript', 'HTML', 'CSS', 'Graph Algorithms'],
+    'Convex Hull Visualization': ['Javascript', 'HTML', 'CSS', 'Algorithms'],
     'A Data Driven Approach to Large Scale Audio Version Identification': ['Python', 'PyTorch', 'Machine Learning', 'Linear Algebra'],
     'Validity of SAT Score as a Predictor of College Success': ['Data Analytics', 'Statistical Data Analysis', 'RStudio', 'Python'],
     'Ursinus College Degree Planner': ['React.js', 'Redux.js', 'Node.js', 'SQLite', 'Express.js', 'Bootstrap 5', 'Agile Project Management']

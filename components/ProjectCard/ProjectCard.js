@@ -9,7 +9,8 @@ import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const ExpandMore = styled((props) => {
@@ -37,6 +38,9 @@ export default function ProjectCard({title, date, image, caption, description, t
         title={title}
         subheader={date}
       />
+      <Stack direction='row' mr={1} ml={1} mb={1} alignContent={'center'} sx={{flexWrap: 'wrap'}}>
+        {tech.map((skill) => <Chip color="primary" label={skill} sx={{fontFamily: 'Open Sans', mr: 0.5, mb: 0.5}}/>)}
+      </Stack>
       <CardMedia
         component="img"
         height="200"
