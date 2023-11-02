@@ -1,14 +1,16 @@
-.headerLabel {
-    font-family: 'Roboto Slab';
-    font-size: 1.5vw;
-}
+@media  (min-width: 626px) {
+    .headerLabel {
+        font-family: 'Roboto Slab';
+        font-size: 1.5vw;
+    }
 
-.headerLinkLabel {
-    vertical-align: middle !important;
-}
+    /* .headerLinkLabel {
+        vertical-align: middle !important;
+    } */
 
-.mobileMenu {
-    display: none;
+    .mobileMenu {
+        display: none;
+    }
 }
 
 @media (max-width: 625px) {
@@ -24,7 +26,7 @@
         font-size: 2vh;
     }
 
-    .panelText span, .cardHeader span {
+    .panelText span, .cardHeader span, .headerLabel {
         font-family: 'Roboto Slab';
     }
     .cardHeader span {

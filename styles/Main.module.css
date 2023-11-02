@@ -3,6 +3,21 @@
   width: 50%;
 }
 
+.generalSkills {
+  margin: 0 auto;
+  margin-bottom: 4%;
+}
+
+.skillChip:hover {
+  border-color: rgb(13, 110, 253, 1);
+  color: rgb(13, 110, 253, 1);
+  transition: 0.3s;
+}
+
+.skillChip {
+  transition: 0.3s;
+}
+
 @media screen and (max-width: 625px) {
   .Home {
       width: 90%;

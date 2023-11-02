@@ -1,1 +1,7 @@
-.Aspirations {}
+.Aspirations {
+    height: 100%;
+}
+
+.parallax {
+    height: 50vh;
+}

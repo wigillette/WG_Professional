@@ -27,6 +27,7 @@ const CourseBreadcrumb = ({courseId}) => (
                 Coursework
             </CustomLink>
             <Typography
+                className={styles.currentCoursePage}
                 sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Roboto Slab', fontSize: {'xs': '0.9rem', 'sm': '1rem', 'lg': '1.1rem'} }}
                 color="text.primary"
                 >
