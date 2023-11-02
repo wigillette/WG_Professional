@@ -1,6 +1,6 @@
 @media  (min-width: 626px) {
     .headerLabel {
-        font-family: 'Roboto Slab';
+        font-family: 'Roboto Slab' !important;
         font-size: 1.5vw;
     }
 
@@ -9,7 +9,7 @@
     } */
 
     .mobileMenu {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -27,7 +27,7 @@
     }
 
     .panelText span, .cardHeader span, .headerLabel {
-        font-family: 'Roboto Slab';
+        font-family: 'Roboto Slab' !important;
     }
     .cardHeader span {
         font-size: 1.2rem
