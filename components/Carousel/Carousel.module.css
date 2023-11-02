@@ -1,1 +1,9 @@
-.Carousel {}
+.carouselBox {
+    max-width: 40%;
+}
+
+@media (max-width: 520px) {
+    .carouselBox {
+        max-width: 100%;
+    }
+}

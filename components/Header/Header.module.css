@@ -24,8 +24,16 @@
         font-size: 2vh;
     }
 
-    .panelText span {
+    .panelText span, .cardHeader span {
         font-family: 'Roboto Slab';
+    }
+    .cardHeader span {
+        font-size: 1.2rem
+    }
+
+    .mobilePanel > div {
+        max-width: 80%;
+        position: absolute;
     }
 }
 

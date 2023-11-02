@@ -42,7 +42,7 @@ export default function ProjectCard({title, date, image, caption, description, t
           subheader={date}
         />
         <Stack direction='row' ml={2} mb={1} alignContent={'center'} sx={{flexWrap: 'wrap'}}>
-          {tech.map((skill) => <Chip color="primary" label={skill} sx={{fontFamily: 'Open Sans', mr: 0.5, mb: 0.5}}/>)}
+          {tech.map((skill) => <Chip key={skill} color="primary" label={skill} sx={{fontFamily: 'Open Sans', mr: 0.5, mb: 0.5}}/>)}
         </Stack>
         <CardMedia
           component="img"

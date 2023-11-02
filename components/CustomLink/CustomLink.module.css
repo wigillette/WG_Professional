@@ -1,6 +1,13 @@
 .CustomLink {
     font-family: 'Roboto Slab' !important;
     transition: 0.3s;
+    
+}
+
+@media (max-width: 520px) {
+    .CustomLink {
+        font-size: 0.8rem;
+    }
 }
 
 .CustomLink:hover {

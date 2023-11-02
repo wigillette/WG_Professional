@@ -19,6 +19,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import Divider from '@mui/material/Divider';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import carouselInfo from '../../text/carousel1Info.js';
 
 const HeaderLink = ({icon, label, link}) => (
   <CustomLink mr={2} href={link}>
@@ -27,7 +31,7 @@ const HeaderLink = ({icon, label, link}) => (
 )
 
 const Header = () => {
-  const [state, setState] = React.useState({panelOpen: false})
+  const [state, setState] = React.useState({panelOpen: false, randomIndex: Math.floor(Math.random()*carouselInfo.length)})
   const icons = [<Home/>, <School/>, <TravelExplore/>, <RocketLaunch/>]
   const togglePanel = (isOpen) => (event) => {
     if (event.type !== 'keydown' || (event.key !== 'Tab' && event.key !== 'Shift')) {
@@ -61,14 +65,13 @@ const Header = () => {
           </Toolbar>
         </AppBar>
       </Box>
-      <Drawer open={state.panelOpen} onClose={togglePanel(false)} >
+      <Drawer open={state.panelOpen} onClose={togglePanel(false)} className={styles.mobilePanel}>
         <Box
           onClick={togglePanel(false)}
           onKeyDown={togglePanel(false)}
           sx={{margin: 2}}
         >
           <Typography variant={'h3'} fontFamily={'Roboto Slab'} margin={'0 auto'} fontSize={'100%'} width={'100%'}>William C. Gillette</Typography>
-
           <List>
             {['Home', 'Coursework', 'Experiences', 'Aspirations'].map((text, i) => (
             <ListItem key={text} disablePadding>
@@ -81,6 +84,15 @@ const Header = () => {
             </ListItem>
             ))}
             <Divider sx={{mt: 2, mb: 2}} />
+            <Card>
+              <CardMedia sx={{height: 140}} image={carouselInfo[state.randomIndex].imgPath}/>
+              <CardContent>
+                <Typography gutterBottom variant="paragraph" component="div">
+                {carouselInfo[state.randomIndex].desc}
+                </Typography>
+              </CardContent>
+            </Card>
+              {/* <Carousel images={carouselInfo}/> */}
           </List>
         </Box>
       </Drawer>

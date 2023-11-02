@@ -13,7 +13,7 @@ const RootLayout = ({ children }) => {
     <>
         <Head>
         <title>William Gillette Biography</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="../public/favicon.ico" />
         </Head>
         <CssBaseline/>
         <Header />

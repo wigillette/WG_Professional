@@ -69,7 +69,7 @@ export default function Coursework() {
           <Grid container spacing={3}>
             {Object.entries(projects).map((project) => (
               <Grid key={project[0]} item xs={12} sm={6} lg={3}>
-                <ProjectCard title={project[0]} 
+                <ProjectCard key={project[0]} title={project[0]} 
                   date={project[1][0]} 
                   image={project[1][1]} 
                   caption={project[1][2]} 
@@ -86,7 +86,7 @@ export default function Coursework() {
           <Fade in={true}>
             <Grid container spacing={3}>
               {Object.keys(relevantCourses).map((category, i) => (
-                <Grid item xs={12} sm={4} lg={3}>
+                <Grid item xs={12} sm={4} lg={3} key={i}>
                     <SemesterTable key={i} category={category} courses={relevantCourses[category]} />
                 </Grid>
               ))}

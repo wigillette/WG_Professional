@@ -2,3 +2,14 @@
     width: 75%;
     margin: 0 auto;
 }
+
+.courseBreadcrumb {
+    width: 100%;
+    height: 10%;
+}
+
+@media (max-width: 520px) {
+    .currentCoursePage {
+        font-size: 0.5rem;
+    }
+}

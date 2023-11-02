@@ -4,7 +4,7 @@ import RootLayout from "../../components/Layout.js";
 import styles from "../../styles/coursePage.module.css";
 import courseDescriptions from "../../text/courseDescriptions.js";
 import courses from "../../text/courses.js";
-import { Breadcrumbs, Divider, Typography, Link } from "@mui/material";
+import { Breadcrumbs, Divider, Typography } from "@mui/material";
 import { CalendarMonth, School, NavigateNext } from "@mui/icons-material";
 import CustomLink from '../../components/CustomLink/CustomLink';
 import Carousel from "../../components/Carousel/Carousel.js";
@@ -20,14 +20,14 @@ const getCourseInfo = (courseId) => {
 }
 
 const CourseBreadcrumb = ({courseId}) => (
-    <div key={courseId}>
+    <div key={courseId} className={styles.courseBreadcrumb}>
         <Breadcrumbs separator={<NavigateNext fontSize='small'/>}>
             <CustomLink sx={{ display: 'flex', alignItems: 'center'}} href="/coursework" mr={0}>
                 <CalendarMonth sx={{ mr: 0.5 }} fontSize="inherit" />
                 Coursework
             </CustomLink>
             <Typography
-                sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Roboto Slab' }}
+                sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Roboto Slab', fontSize: {'xs': '0.9rem', 'sm': '1rem', 'lg': '1.1rem'} }}
                 color="text.primary"
                 >
                 <School sx={{ mr: 0.5 }} fontSize="inherit" />
@@ -52,7 +52,7 @@ export default function coursePage() {
                 </React.Fragment>
                 : <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans', textAlign: 'center'}}>Invalid Course Id</Typography>
             }
-            <Carousel images={carouselInfo}></Carousel>
+            <Carousel images={carouselInfo}/>
         </div>
     </RootLayout>)
 }

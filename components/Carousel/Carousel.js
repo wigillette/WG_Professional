@@ -31,7 +31,7 @@ export default function Carousel({images}) {
   };
 
   return (
-    <Box sx={{ maxWidth: '40%', flexGrow: 1, margin: '0 auto', mt: 5 }}>
+    <Box className={styles.carouselBox} sx={{flexGrow: 1, margin: '0 auto', mt: 5 }}>
       <Paper
         square
         elevation={2}
