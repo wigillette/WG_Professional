@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/Experiences.module.css';
 import RootLayout from '../components/Layout';
-import { ImageList, ImageListItem, Fade } from '@mui/material';
+import { ImageList, ImageListItem, Fade, Stack, Grow } from '@mui/material';
 import experienceImages from '../text/experienceImages';
 import CustomizedAccordions from '../components/CustomAccordion/CustomAccordion';
 import experienceItems from '../text/experienceItems';
@@ -18,21 +18,27 @@ function srcset(image, size, rows=1, cols=1) {
 export default function Experiences() {
   return (
     <RootLayout>
-      <Fade in={true}>
+      <Grow in={true}>
         <div className={styles.Experiences}>
-          <ImageList className={styles.experienceImages} variant='quilted' cols={2} rowHeight={100}>
-            {experienceImages.map((experience) => 
-              (<ImageListItem key={experience.img} cols={experience.cols || 1} rows={experience.rows || 1}>
-                <img
-                  {...srcset(experience.img, 100, experience.rows, experience.cols)}
-                  loading="lazy"
-                />
-              </ImageListItem>)
-            )}
-          </ImageList>
-          <CustomizedAccordions itemDetails={experienceItems} width={'50%'}/>
+          <Stack direction={'row'}>
+              <div className={styles.experienceImages}>
+                <ImageList  variant='quilted' cols={2} rowHeight={225}>
+                  {experienceImages.map((experience) => 
+                    (<ImageListItem key={experience.img} cols={experience.cols || 1} rows={experience.rows || 1}>
+                      <img
+                        {...srcset(experience.img, 225, experience.rows, experience.cols)}
+                        loading="lazy"
+                      />
+                    </ImageListItem>)
+                  )}
+                </ImageList>
+              </div>
+              <div className={styles.experienceAccordion}>
+                  <CustomizedAccordions itemDetails={experienceItems}/>
+              </div>
+          </Stack>
         </div>
-      </Fade>
+      </Grow>
     </RootLayout>
   )
 }

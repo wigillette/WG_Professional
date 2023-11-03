@@ -14,7 +14,7 @@
 }
 
 .footerContainer {
-    display: flex;
+    display: block;
     flex-direction: column;
     margin-top: 3vh;
     min-height: 100%; /* Make the container at least 100% of the viewport height */

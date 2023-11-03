@@ -1,1 +1,3 @@
-.CustomAccordion {}
+.accordion {
+    display: inline-block
+}
