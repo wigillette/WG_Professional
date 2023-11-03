@@ -13,3 +13,16 @@
     font-family: 'Roboto Slab' !important;
     font-size: 80% !important;
 }
+
+
+.overviewContainer {
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+    .overviewContainer {
+        width: 90%;
+    }
+}

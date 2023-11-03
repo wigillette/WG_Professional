@@ -2,11 +2,13 @@ import React from 'react';
 import styles from '../../styles/Coursework.module.css';
 import { styled } from '@mui/material/styles';
 import RootLayout from '../../components/Layout';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid, Fade, Divider } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid, Fade, Divider, Button } from '@mui/material';
 import relevantCourses from '../../text/relevantCourses';
 import CustomLink from '../../components/CustomLink/CustomLink';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import { projects, projectTech, projectMedia } from '../../text/projects';
+import { Download } from '@mui/icons-material';
+import UnofficialTranscript from "../../text/Unofficial_Transcript.pdf";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -21,22 +23,11 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-// const StyledTableRow = styled(TableRow)(({ theme }) => ({
-//   '&:nth-of-type(odd)': {
-//     backgroundColor: theme.palette.action.hover,
-//   },
-//   // hide last border
-//   '&:last-child td, &:last-child th': {
-//     border: 0,
-//   },
-// }));
-
 const SemesterTable = ({category, courses}) => (
   <React.Fragment>
   <Typography variant='h5' fontFamily={'Roboto Slab'} textAlign={'center'} mb={1}>{`${category}`}</Typography>
   <TableContainer component={Paper}>
     <Table>
-      {/* <caption className={styles.tableCaption}>{`Term GPA: ${Object.keys(termGPAs).includes(category) ? termGPAs[semesterLabel] : 'N/A'}`}</caption> */}
       <TableHead>
         <TableRow>
           <StyledTableCell>ID</StyledTableCell>
@@ -63,7 +54,17 @@ export default function Coursework() {
     <RootLayout>
       <div className={styles.Coursework}>
         <Fade in={true}>
-          <Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} textAlign='center' sx={{margin: '0 auto'}}>Independent Research and Project Portfolio</Typography>
+          <div className={styles.overviewContainer}>
+            <Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} textAlign='center' mb={'0.5rem'}>Academic Mission</Typography>
+            <Typography variant='paragraph' fontFamily={'Open Sans'} textAlign='center' mb={'0.5rem'}>I am pursuing a triple major, graduating in May 2025 with BS degrees in Computer Science, Statistics, and Mathematics. My goal is to pursue a career that enables me to utilize and expand my computer science and analytical skills, furthering my education with a Master's Degree in the future. I am passionate about programming as an analytical tool, and I enjoy collaborating with others to solve challenging problems. Through perpetual diligence and perseverence, I wish to apply and grow my technical skills in a real-world setting, contributing to meaningful projects and outcomes.</Typography>
+            <br/>
+            <a href={UnofficialTranscript} download>
+              <Button variant='contained' sx={{margin: '0 auto', mt: '1rem'}}><Download/> Unofficial Transcript</Button>
+            </a>
+          </div>
+        </Fade>
+        <Fade in={true}>
+          <Divider><Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} textAlign='center'>Project Portfolio</Typography></Divider>
         </Fade>
         <div className={styles.projectsContainer}>
           <Grid container spacing={3}>

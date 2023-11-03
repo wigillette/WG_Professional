@@ -20,7 +20,11 @@
 }
 
 .skillChip {
-  transition: 0.3s;
+  transition: 0.3s !important;
+}
+
+.formComponents {
+  margin: 0 auto !important;
 }
 
 @media screen and (max-width: 625px) {
