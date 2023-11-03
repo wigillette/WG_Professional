@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/Experiences.module.css';
 import RootLayout from '../components/Layout';
-import { ImageList, ImageListItem, Fade, Stack, Grow } from '@mui/material';
+import { ImageList, ImageListItem, Fade, Stack, Grow, Typography } from '@mui/material';
 import experienceImages from '../text/experienceImages';
 import CustomizedAccordions from '../components/CustomAccordion/CustomAccordion';
 import experienceItems from '../text/experienceItems';
@@ -20,6 +20,7 @@ export default function Experiences() {
     <RootLayout>
       <Grow in={true}>
         <div className={styles.Experiences}>
+          <Typography variant='h4' fontFamily='Roboto Slab' fontWeight={600} textAlign={'center'} mb={'1rem'}>Leadership Positions, Awards & Honors, Extracurriculars</Typography>
           <Stack direction={'row'}>
               <div className={styles.experienceImages}>
                 <ImageList  variant='quilted' cols={2} rowHeight={225}>

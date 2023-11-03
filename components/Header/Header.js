@@ -42,8 +42,8 @@ const Header = () => {
   return (
     <React.Fragment>
       
-      <Box sx={{ flexGrow: 1, marginBottom: '3vh' }}>
-        <AppBar position="static" color="error">
+      {/* <Box sx={{ flexGrow: 1, marginBottom: '3vh' }}> */}
+        <AppBar position="sticky" color="error">
           <Toolbar>
             <IconButton
               size="large"
@@ -64,7 +64,8 @@ const Header = () => {
             <HeaderLink icon={<RocketLaunch/>} label='Aspirations' link='/aspirations'/>
           </Toolbar>
         </AppBar>
-      </Box>
+        <Toolbar className={styles.spacingToolbar}/>
+      {/* </Box> */}
       <Drawer open={state.panelOpen} onClose={togglePanel(false)} className={styles.mobilePanel}>
         <Box
           onClick={togglePanel(false)}
