@@ -45,7 +45,7 @@ export default function Main() {
               <Typography className={styles.HomeHeader} fontFamily='Roboto Slab' fontSize='2rem' fontWeight={600}>About Me</Typography>
             </Divider>
             <Typography paragraph sx={{fontFamily: 'Open Sans'}}>{Biography}</Typography>
-            <a href={Resume} download>
+            <a href={Resume} download className={styles.link}>
               <Button variant='contained' sx={{margin: '0 auto', mt: '0.5rem', mb: '1rem'}}><Download/> Curriculum Vitae</Button>
             </a>
             <Divider sx={{margin: '0 auto', marginBottom: '1rem'}}>

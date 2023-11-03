@@ -21,6 +21,10 @@
     margin-bottom: 1rem;
 }
 
+.link {
+    text-decoration: none;
+}
+
 @media (max-width: 600px) {
     .overviewContainer {
         width: 90%;

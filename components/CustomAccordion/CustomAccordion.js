@@ -57,7 +57,7 @@ export default function CustomizedAccordions({itemDetails}) {
       {itemDetails.map((details, i) => (
         <Accordion key={details.name} expanded={expanded === `panel${i+1}`} onChange={handleChange(`panel${i+1}`)}>
           <AccordionSummary aria-controls={`panel${i+1}d-content`} id={`panel${i+1}d-header`}>
-            <Typography variant='h6' fontFamily='Roboto Slab' >{details.name}</Typography>
+            <Typography variant='body1' fontFamily='Roboto Slab' >{details.name}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             {details.desc.map((sub, i) => (

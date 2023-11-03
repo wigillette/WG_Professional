@@ -4,4 +4,15 @@
 
 .parallax {
     height: 50vh;
+    margin-bottom: 1rem;
+}
+
+.marathonAspiration {
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .parallax {
+        height: 20vh;
+    }
 }

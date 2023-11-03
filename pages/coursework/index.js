@@ -58,7 +58,7 @@ export default function Coursework() {
             <Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} textAlign='center' mb={'0.5rem'}>Academic Mission</Typography>
             <Typography variant='paragraph' fontFamily={'Open Sans'} textAlign='center' mb={'0.5rem'}>I am pursuing a <b>triple major</b>, graduating in <b>May 2025</b> with BS degrees in <b>Computer Science</b>, <b>Statistics</b>, and <b>Mathematics</b>. My goal is to pursue a career that enables me to utilize and expand my computer science and analytical skills, furthering my education with a <b>Master's Degree</b> in the future. I am passionate about programming as an analytical tool, and I enjoy collaborating with others to solve challenging problems. Through perpetual diligence and perseverence, I wish to apply and grow my technical skills in a real-world setting, contributing to meaningful projects and outcomes.</Typography>
             <br/>
-            <a href={UnofficialTranscript} download>
+            <a href={UnofficialTranscript} className={styles.link} download>
               <Button variant='contained' sx={{margin: '0 auto', mt: '1rem'}}><Download/> Unofficial Transcript</Button>
             </a>
           </div>

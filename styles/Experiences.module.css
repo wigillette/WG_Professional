@@ -6,11 +6,19 @@
 .experienceImages {
     width: 45%;
     margin-right: 5%;
-    margin-top: 0%;
-    margin-bottom: 0%;
 }
 
 .experienceAccordion {
     margin-top: 1rem;
     width: 50%;
+}
+
+@media (max-width: 600px) {
+    .experienceImages {
+        display: none;
+    }
+
+    .experienceAccordion {
+        width: 100%;
+    }
 }
