@@ -4,6 +4,7 @@ import RootLayout from '../components/Layout';
 import { ImageList, ImageListItem, Fade } from '@mui/material';
 import experienceImages from '../text/experienceImages';
 import CustomizedAccordions from '../components/CustomAccordion/CustomAccordion';
+import experienceItems from '../text/experienceItems';
 
 function srcset(image, size, rows=1, cols=1) {
   return {
@@ -19,17 +20,17 @@ export default function Experiences() {
     <RootLayout>
       <Fade in={true}>
         <div className={styles.Experiences}>
-          <ImageList className={styles.experienceImages} variant='quilted' cols={2} rowHeight={250}>
+          <ImageList className={styles.experienceImages} variant='quilted' cols={2} rowHeight={100}>
             {experienceImages.map((experience) => 
               (<ImageListItem key={experience.img} cols={experience.cols || 1} rows={experience.rows || 1}>
                 <img
-                  {...srcset(experience.img, 250, experience.rows, experience.cols)}
+                  {...srcset(experience.img, 100, experience.rows, experience.cols)}
                   loading="lazy"
                 />
               </ImageListItem>)
             )}
           </ImageList>
-          <CustomizedAccordions/>
+          <CustomizedAccordions itemDetails={experienceItems} width={'50%'}/>
         </div>
       </Fade>
     </RootLayout>

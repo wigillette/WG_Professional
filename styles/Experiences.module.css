@@ -4,5 +4,7 @@
 }
 
 .experienceImages {
-    width: 50%;
+    width: 45%;
+    margin-right: 2%;
+    float: left;
 }
