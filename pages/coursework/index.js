@@ -64,7 +64,7 @@ export default function Coursework() {
           </div>
         </Fade>
         <Fade in={true}>
-          <Divider><Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} textAlign='center'>Project Portfolio</Typography></Divider>
+          <Divider><Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} textAlign='center' mb={'0.5rem'} mt={'0.5rem'}>Project Portfolio</Typography></Divider>
         </Fade>
         <div className={styles.projectsContainer}>
           <Grid container spacing={3}>
@@ -82,7 +82,7 @@ export default function Coursework() {
               ))}
           </Grid>
         </div>
-        <Divider><Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} mb={2}>Relevant Courses:</Typography></Divider>
+        <Divider><Typography variant='h5' fontFamily={'Roboto Slab'} fontWeight={600} mb={'0.5rem'} mt={'0.5rem'}>Relevant Courses:</Typography></Divider>
         <div className={styles.tableContainer}>
           <Fade in={true}>
             <Grid container spacing={3}>
