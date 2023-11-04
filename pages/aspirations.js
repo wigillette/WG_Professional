@@ -5,7 +5,7 @@ import { Parallax } from 'react-parallax';
 import Typography from '@mui/material/Typography';
 import Track1 from '../text/Track1.jpg';
 import City from '../text/City.JPEG';
-import PhiKaps6 from '../text/PhiKaps6.JPG';
+import PhiKaps6 from '../text/PhiKaps6.jpg';
 import Paper from '@mui/material/Paper';
 import Fade from '@mui/material/Fade';
 
