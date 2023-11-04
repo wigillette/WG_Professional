@@ -12,8 +12,16 @@
     margin-bottom: 1rem;
 }
 
+.biography {
+    width: 75%;
+}
+
 @media (max-width: 600px) {
     .parallax {
         height: 20vh;
+    }
+
+    .biography {
+        width: 90%;
     }
 }

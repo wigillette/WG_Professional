@@ -24,6 +24,7 @@ export default function Main() {
         <Fade in={true}>
           <div>
             <div className={styles.socialMedia}>
+              <Typography variant='h6' fontWeight={600} textAlign={'center'} fontFamily={'Open Sans'} mb={'0.5rem'}>wgillette02@gmail.com</Typography>
               <Stack direction={'row'} justifyContent='center'>
                 <IconButton className={styles.icon} color="primary" href="https://www.facebook.com/william.gillette.3152" target="_blank" rel="noopener noreferrer">
                   <Facebook/> 

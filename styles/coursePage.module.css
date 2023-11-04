@@ -8,8 +8,13 @@
     height: 10%;
 }
 
-@media (max-width: 520px) {
-    .currentCoursePage {
+@media (max-width: 600px) {
+    /* .currentCoursePage {
         font-size: 0.5rem;
+    } */
+
+    .courseBreadcrumb {
+        font-size: 1rem;
     }
+
 }

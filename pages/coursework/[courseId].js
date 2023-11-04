@@ -8,6 +8,7 @@ import { CalendarMonth, School, NavigateNext } from "@mui/icons-material";
 import CustomLink from '../../components/CustomLink/CustomLink';
 import Carousel from "../../components/Carousel/Carousel.js";
 import carouselInfo from "../../text/carousel1Info.js";
+import Fade from "@mui/material/Fade";
 
 const getCourseInfo = (courseId) => {
     const semesterData = Object.values(courses).filter((semesterPlan) => {
@@ -21,13 +22,13 @@ const getCourseInfo = (courseId) => {
 const CourseBreadcrumb = ({courseId}) => (
     <div key={courseId} className={styles.courseBreadcrumb}>
         <Breadcrumbs separator={<NavigateNext fontSize='small'/>}>
-            <CustomLink sx={{ display: 'flex', alignItems: 'center'}} href="/coursework" mr={0}>
+            <CustomLink sx={{ display: 'flex', alignItems: 'center', fontSize: '1rem'}} href="/coursework" mr={0}>
                 <CalendarMonth sx={{ mr: 0.5 }} fontSize="inherit" />
                 Coursework
             </CustomLink>
             <Typography
                 className={styles.currentCoursePage}
-                sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Roboto Slab', fontSize: {'xs': '0.9rem', 'sm': '1rem', 'lg': '1.1rem'} }}
+                sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Roboto Slab', fontSize: '0.9rem'}}
                 color="text.primary"
                 >
                 <School sx={{ mr: 0.5 }} fontSize="inherit" />
@@ -41,18 +42,20 @@ const coursePage = ({ courseInfo }) => {
     const courseId = courseInfo.id;
 
     return (<RootLayout>
-        <div className={styles.coursePage}>
-            <CourseBreadcrumb courseId={courseId} />
-            {Object.keys(courseDescriptions).includes(courseId) ? 
-                <React.Fragment>
-                    <Typography variant='h5' color='rgb(0,0,0)' sx={{fontFamily: 'Roboto Slab', textAlign: 'center'}}>{`${courseId}: ${getCourseInfo(courseId)[1]}`}</Typography>
-                    <Divider variant='middle' light sx={{mb: 1, mt: 1}}/>
-                    <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans'}}>{courseDescriptions[courseId]}</Typography>
-                </React.Fragment>
-                : <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans', textAlign: 'center'}}>Invalid Course Id</Typography>
-            }
-            <Carousel images={carouselInfo}/>
-        </div>
+        <Fade in={true}>
+            <div className={styles.coursePage}>
+                <CourseBreadcrumb courseId={courseId} />
+                {Object.keys(courseDescriptions).includes(courseId) ? 
+                    <React.Fragment>
+                        <Typography variant='h5' color='rgb(0,0,0)' sx={{fontFamily: 'Roboto Slab', textAlign: 'center'}}>{`${courseId}: ${getCourseInfo(courseId)[1]}`}</Typography>
+                        <Divider variant='middle' light sx={{mb: 1, mt: 1}}/>
+                        <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans'}}>{courseDescriptions[courseId]}</Typography>
+                    </React.Fragment>
+                    : <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans', textAlign: 'center'}}>Invalid Course Id</Typography>
+                }
+                <Carousel images={carouselInfo}/>
+            </div>
+        </Fade>
     </RootLayout>)
 }
 

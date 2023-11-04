@@ -2,7 +2,7 @@ import PhiKaps2 from "../text/PhiKaps2.jpg"
 import PhiKaps3 from "../text/PhiKaps3.jpg"
 import PhiKaps4 from "../text/PhiKaps4.jpg"
 import XC from "../text/XC.jpg"
-import XC2 from "../text/XC2.jpg"
+import Track2 from "../text/Track2.jpg"
 import XC3 from "../text/XC3.jpg"
 import Honors from "../text/Honors.jpg"
 
@@ -14,7 +14,7 @@ const experienceImages = [
         cols: 1
     },
     {
-        img: XC2.src,
+        img: Track2.src,
         rows: 2,
         cols: 1
     },

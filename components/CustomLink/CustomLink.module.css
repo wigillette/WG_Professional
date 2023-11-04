@@ -5,9 +5,9 @@
 }
 
 @media (max-width: 520px) {
-    .CustomLink {
+    /* .CustomLink {
         font-size: 0.8rem;
-    }
+    } */
 }
 
 .CustomLink:hover {
