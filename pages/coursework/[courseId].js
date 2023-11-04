@@ -1,5 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router.js";
 import RootLayout from "../../components/Layout.js";
 import styles from "../../styles/coursePage.module.css";
 import courseDescriptions from "../../text/courseDescriptions.js";
@@ -38,9 +37,8 @@ const CourseBreadcrumb = ({courseId}) => (
     </div>
 )
 
-export default function coursePage() {
-    const router = useRouter();
-    const courseId = router.query.courseId;
+const coursePage = ({ courseInfo }) => {
+    const courseId = courseInfo.id;
 
     return (<RootLayout>
         <div className={styles.coursePage}>
@@ -57,3 +55,21 @@ export default function coursePage() {
         </div>
     </RootLayout>)
 }
+
+export const getStaticPaths = async () => {
+    // Get all posts via API, file, etc.
+    const courseInfo = Object.keys(courseDescriptions).map((id) => ({id: id})); // Example
+    const paths = courseInfo.map(course => ({
+        params: { courseId: course.id }
+    }));
+    return { paths, fallback: false };
+};
+
+export const getStaticProps = async context => {
+    const courseId = context.params?.courseId || '';
+    // Get post detail via API, file, etc.
+    const courseInfo = { id: courseId }; // Example
+    return { props: { courseInfo } };
+};
+
+export default coursePage;
