@@ -23,6 +23,11 @@ export default function Main() {
         </Zoom>
         <Fade in={true}>
           <div>
+            <div className={styles.resumeContainer}>
+              <a href={Resume} download className={styles.link}>
+                <Button variant='contained' sx={{mt: '0.5rem', mb: '1rem'}}><Download/> Curriculum Vitae</Button>
+              </a>
+            </div>
             <div className={styles.socialMedia}>
               <Typography variant='h6' fontWeight={600} textAlign={'center'} fontFamily={'Open Sans'} mb={'0.5rem'}>wgillette02@gmail.com</Typography>
               <Stack direction={'row'} justifyContent='center'>
@@ -42,13 +47,11 @@ export default function Main() {
                 {generalSkills.map((skill) => <Chip key={skill} className={styles.skillChip} variant='outlined' label={skill} sx={{fontFamily: 'Open Sans', margin: 0.5, fontWeight: 500}} />)}
               </Stack>
             </div>
+            
             <Divider sx={{margin: '0 auto', marginBottom: '1rem'}}>
               <Typography className={styles.HomeHeader} fontFamily='Roboto Slab' fontSize='2rem' fontWeight={600}>About Me</Typography>
             </Divider>
             <Typography paragraph sx={{fontFamily: 'Open Sans'}}>{Biography}</Typography>
-            <a href={Resume} download className={styles.link}>
-              <Button variant='contained' sx={{margin: '0 auto', mt: '0.5rem', mb: '1rem'}}><Download/> Curriculum Vitae</Button>
-            </a>
             <Divider sx={{margin: '0 auto', marginBottom: '1rem'}}>
               <Typography className={styles.HomeHeader} fontFamily='Roboto Slab' fontSize='2rem' fontWeight={600}>Contact Me</Typography>
             </Divider>
