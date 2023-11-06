@@ -20,7 +20,7 @@ export default function Experiences() {
     <RootLayout>
       <Grow in={true}>
         <div className={styles.Experiences}>
-          <Typography variant='h4' fontFamily='Roboto Slab' fontWeight={600} textAlign={'center'} mb={'1rem'}>Leadership Positions, Awards & Honors, Extracurriculars</Typography>
+          <Typography variant='h5' fontFamily='Roboto Slab' fontWeight={600} textAlign={'center'} mb={'1rem'}>Leadership, Extracurriculars, Honors</Typography>
           <Stack direction={'row'}>
               <div className={styles.experienceImages}>
                 <ImageList  variant='quilted' cols={2} rowHeight={225}>
