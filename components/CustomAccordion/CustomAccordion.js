@@ -6,7 +6,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={1} square {...props} />

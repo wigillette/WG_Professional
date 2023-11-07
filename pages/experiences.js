@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from '../styles/Experiences.module.css';
 import RootLayout from '../components/Layout';
-import { ImageList, ImageListItem, Fade, Stack, Grow, Typography } from '@mui/material';
-import experienceImages from '../text/experienceImages';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import Stack from '@mui/material/Stack';
+import Grow from '@mui/material/Grow';
+import Typography from '@mui/material/Typography';
 import CustomizedAccordions from '../components/CustomAccordion/CustomAccordion';
-import experienceItems from '../text/experienceItems';
+import {experienceItems, experienceImages} from '../shared/data/experiences';
 
 function srcset(image, size, rows=1, cols=1) {
   return {

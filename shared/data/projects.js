@@ -1,5 +1,6 @@
-import DegreePlanner from "../text/DegreePlanner.png";
-import StatisticsReport from "../text/WG_Statistics_Report.pdf"
+import DegreePlanner from "../images/DegreePlanner.png";
+import StatisticsReport from "../documents/WG_Statistics_Report.pdf"
+import CSHonorsPresentation from "../documents/CS_Honors_Presentation.pdf";
 
 export const projects = {
     'Convex Hull Visualization': ['April 2021', 'https://i.ibb.co/5Tmx19m/Convex-Thumb.jpg', 'Enabled the automated generation of a 2D or 3D convex hull from a set of 2D points. Practical applications include collision avoidance of particles, traffic, etc. Methods: Developed a web-based modeling application to convert the 2D points into 2D or 3D convex hulls by applying a“geometric lift” using a convex function.', 'The web application models the 2D and 3D convex hulls of a set of 2D points. To convert the 2D points into 3D points, I apply a “geometric lift” using a convex function: a function with a positive second derivative. In this case, the convex function is “z = x^2 + y^2”, which creates a paraboloid shaped figure. To form the 3D convex hull, I create faces with these 3D points, and the condition for these faces is that all the points are on one side of each face. Another interesting fact about the 3D convex hull is that its shadow is a Delaunay triangulation, a 2D figure composed of strictly triangles. The 2D convex hull uses an efficient algorithm called the Quick Hull algorithm, which first creates a line with the points the minimum and maximum x-values, and then recursively creates lines from the endpoints of the previous line to the point farthest from it. The recursion finishes when all the points are on one side of each edge.'],
@@ -17,7 +18,7 @@ export const projectTech = {
 
 export const projectMedia = {
     'Convex Hull Visualization': {video: 'https://www.youtube.com/watch?v=9cv_aizMpIk', site: 'https://wg-convex-hull.glitch.me/'},
-    'A Data Driven Approach to Large Scale Audio Version Identification': {site: 'https://github.com/ctralie/acoss'},
+    'A Data Driven Approach to Large Scale Audio Version Identification': {site: 'https://github.com/ctralie/acoss', video: CSHonorsPresentation},
     'Validity of SAT Score as a Predictor of College Success': {site: StatisticsReport},
     'Ursinus College Degree Planner': {video: 'https://www.youtube.com/watch?v=o9z4vJPbrN0', site: 'https://wigillette.github.io/GatewayRevamp/'}
 }

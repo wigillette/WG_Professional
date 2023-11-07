@@ -2,13 +2,25 @@ import React from 'react';
 import styles from '../../styles/Coursework.module.css';
 import { styled } from '@mui/material/styles';
 import RootLayout from '../../components/Layout';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, tableCellClasses, Grid, Fade, Divider, Button } from '@mui/material';
-import relevantCourses from '../../text/relevantCourses';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import tableCellClasses from '@mui/material/TableCell';
+import Grid from '@mui/material/Grid';
+import Fade from '@mui/material/Fade';
+import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+import { relevantCourses } from '../../shared/data/courses';
 import CustomLink from '../../components/CustomLink/CustomLink';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
-import { projects, projectTech, projectMedia } from '../../text/projects';
-import { Download } from '@mui/icons-material';
-import UnofficialTranscript from "../../text/Unofficial_Transcript.pdf";
+import { projects, projectTech, projectMedia } from '../../shared/data/projects';
+import Download from '@mui/icons-material/Download';
+import UnofficialTranscript from "../../shared/documents/Unofficial_Transcript.pdf";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {

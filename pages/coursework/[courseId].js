@@ -1,13 +1,16 @@
 import React from "react";
 import RootLayout from "../../components/Layout.js";
 import styles from "../../styles/coursePage.module.css";
-import courseDescriptions from "../../text/courseDescriptions.js";
-import courses from "../../text/courses.js";
-import { Breadcrumbs, Divider, Typography } from "@mui/material";
-import { CalendarMonth, School, NavigateNext } from "@mui/icons-material";
+import {courses, descriptions} from "../../shared/data/courses.js";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+import CalendarMonth from "@mui/icons-material/CalendarMonth.js";
+import School from '@mui/icons-material/School.js';
+import NavigateNext from '@mui/icons-material/NavigateNext.js';
 import CustomLink from '../../components/CustomLink/CustomLink';
 import Carousel from "../../components/Carousel/Carousel.js";
-import carouselInfo from "../../text/carousel1Info.js";
+import carouselInfo from "../../shared/data/carousel1Info.js";
 import Fade from "@mui/material/Fade";
 
 const getCourseInfo = (courseId) => {
@@ -45,11 +48,11 @@ const coursePage = ({ courseInfo }) => {
         <Fade in={true}>
             <div className={styles.coursePage}>
                 <CourseBreadcrumb courseId={courseId} />
-                {Object.keys(courseDescriptions).includes(courseId) ? 
+                {Object.keys(descriptions).includes(courseId) ? 
                     <React.Fragment>
                         <Typography variant='h5' color='rgb(0,0,0)' sx={{fontFamily: 'Roboto Slab', textAlign: 'center'}}>{`${courseId}: ${getCourseInfo(courseId)[1]}`}</Typography>
                         <Divider variant='middle' light sx={{mb: 1, mt: 1}}/>
-                        <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans'}}>{courseDescriptions[courseId]}</Typography>
+                        <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans'}}>{descriptions[courseId]}</Typography>
                     </React.Fragment>
                     : <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans', textAlign: 'center'}}>Invalid Course Id</Typography>
                 }
@@ -60,8 +63,7 @@ const coursePage = ({ courseInfo }) => {
 }
 
 export const getStaticPaths = async () => {
-    // Get all posts via API, file, etc.
-    const courseInfo = Object.keys(courseDescriptions).map((id) => ({id: id})); // Example
+    const courseInfo = Object.keys(descriptions).map((id) => ({id: id})); // Example
     const paths = courseInfo.map(course => ({
         params: { courseId: course.id }
     }));

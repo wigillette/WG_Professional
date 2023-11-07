@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CustomLink.module.css';
-import { Link } from '@mui/material';
+import Link from '@mui/material/Link';
 
 const CustomLink = ({children, href, mr, color, variant, sx}) => (
   <Link className={styles.CustomLink} variant={variant||'h6'} href={href} sx={{ mr: mr||0, textDecoration: 'none', color: color || 'inherit', ...sx }}>

@@ -1,4 +1,41 @@
-const experienceItems = [
+import PhiKaps2 from "../images/PhiKaps2.jpg"
+import PhiKaps4 from "../images/PhiKaps4.jpg"
+import XC from "../images/XC.jpg"
+import Track2 from "../images/Track2.jpg"
+import XC3 from "../images/XC3.jpg"
+import PromisingSophomore from "../images/PromisingSophomore.jpg"
+
+
+export const experienceImages = [
+    {
+        img: XC.src,
+        rows: 1,
+        cols: 1
+    },
+    {
+        img: Track2.src,
+        rows: 2,
+        cols: 1
+    },
+    {
+        img: PhiKaps4.src,
+        rows: 2,
+        cols: 1
+    },
+    {
+        img: PhiKaps2.src,
+        rows: 1,
+        cols: 1
+    },
+    {
+        img: XC3.src
+    },
+    {
+        img: PromisingSophomore.src
+    }
+]
+
+export const experienceItems = [
     {
         name: 'Three-Season Student Athlete in Cross Country and Track & Field',
         desc: ['I have been competing in competitive Cross Country and Track & Field since 2013. Despite several setbacks from my career such as multiple stress fractures, I have persevered and remained committed to the sport. Competing in the sport for NCAA Division 3 has required me to balance my time between my athletics, academics, and all my responsibilities and extracurricular activities.', 'In January 2023, I received the Most Improved Runner award, which is awarded to the runner who has progressed and developed the most through hard work and dedication during the 2022 cross-country season. In particular, throughout the Fall 2022 season, I worked from being considered one of the slowest members of the team to one of the top runners on the team, making this progress through prioritizing my training, placing an emphasis on nutrition, ensuring that I received adequate sleep each night, and ultimately setting myself up for success during competition.']
@@ -24,5 +61,3 @@ const experienceItems = [
         desc: ['In July 2023, I participated as a student representative in a five-day certification training for high school computer science teachers. I provided input from a student\'s perspective in workshops and collaborated with a high school teacher on developing and presenting a lesson about routers and redundancy.', 'In Fall 2023, I enrolled in a Computer Science Pedagogy course, learning about constructing lesson plans through the Understanding by Design (UbD) framework and the importance of integrating the guidelines of the Universal Design for Learning (UDL) to promote equity in the classroom.']
     }
 ]
-
-export default experienceItems

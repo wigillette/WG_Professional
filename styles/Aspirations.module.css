@@ -3,8 +3,11 @@
 }
 
 .parallax {
-    height: 50vh;
     margin-bottom: 1rem;
+}
+
+.parallax div {
+    height: 50vh;
 }
 
 .parallaxContainer {
@@ -17,11 +20,11 @@
 }
 
 @media (max-width: 600px) {
-    .parallax {
-        height: 20vh;
-    }
-
     .biography {
         width: 90%;
+    }
+
+    .parallax div {
+        height: 30vh;
     }
 }

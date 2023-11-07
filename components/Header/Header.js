@@ -22,7 +22,7 @@ import Divider from '@mui/material/Divider';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import carouselInfo from '../../text/carousel1Info.js';
+import carouselInfo from '../../shared/data/carousel1Info.js';
 
 const HeaderLink = ({icon, label, link}) => (
   <CustomLink mr={2} href={link}>

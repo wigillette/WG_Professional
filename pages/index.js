@@ -1,12 +1,22 @@
 import React from 'react';
 import styles from '../styles/Main.module.css';
-import { Stack, Typography, Chip, IconButton, Box, TextField, Button, Avatar, Divider, Zoom, Fade } from '@mui/material';
-import Biography from '../text/bio.js';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
+import Divider from '@mui/material/Divider';
+import Zoom from '@mui/material/Zoom';
+import Fade from '@mui/material/Fade';
+import Biography from '../shared/data/bio.js';
 import RootLayout from '../components/Layout';
 const headshot = 'https://media.licdn.com/dms/image/D4D03AQF_Sbojz5642w/profile-displayphoto-shrink_400_400/0/1697126489786?e=1704326400&v=beta&t=aN6qvPthhSKZv7eOZw1ODxUyF2Maj5eUU515xY0UZ9E';
-import generalSkills from '../text/generalSkills'
+import generalSkills from '../shared/data/generalSkills'
 import { Facebook, LinkedIn, GitHub, Send, Download } from '@mui/icons-material';
-import Resume from "../text/WG_Resume.pdf";
+import Resume from "../shared/documents/WG_Resume.pdf";
 
 export default function Main() {
   const containerRef = React.useRef(null);
