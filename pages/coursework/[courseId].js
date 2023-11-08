@@ -1,5 +1,6 @@
 import React from "react";
 import RootLayout from "../../components/Layout.js";
+import { useRouter } from "next/router.js";
 import styles from "../../styles/coursePage.module.css";
 import {courses, descriptions} from "../../shared/data/courses.js";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
@@ -41,8 +42,9 @@ const CourseBreadcrumb = ({courseId}) => (
     </div>
 )
 
-const coursePage = ({ courseInfo }) => {
-    const courseId = courseInfo.id;
+const coursePage = () => {
+    const router = useRouter();
+    const courseId = router.query.courseId;
 
     return (<RootLayout>
         <Fade in={true}>
@@ -61,20 +63,5 @@ const coursePage = ({ courseInfo }) => {
         </Fade>
     </RootLayout>)
 }
-
-export const getStaticPaths = async () => {
-    const courseInfo = Object.keys(descriptions).map((id) => ({id: id})); // Example
-    const paths = courseInfo.map(course => ({
-        params: { courseId: course.id }
-    }));
-    return { paths, fallback: false };
-};
-
-export const getStaticProps = async context => {
-    const courseId = context.params?.courseId || '';
-    // Get post detail via API, file, etc.
-    const courseInfo = { id: courseId }; // Example
-    return { props: { courseInfo } };
-};
 
 export default coursePage;

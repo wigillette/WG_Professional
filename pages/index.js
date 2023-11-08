@@ -20,9 +20,12 @@ import Resume from "../shared/documents/WG_Resume.pdf";
 
 export default function Main() {
   const containerRef = React.useRef(null);
+  const [email, setEmail] = React.useState('');
+  const [message, setMessage] = React.useState('');
+
   return (
     <RootLayout>
-      <div className={styles.Home} ref={containerRef}>
+      <div className={styles.Home}>
         <Zoom in={true}>
           <Avatar
             alt='William Gillette'
@@ -67,9 +70,19 @@ export default function Main() {
             </Divider>
             <Box component="form" noValidate autoComplete="off">
               <div className={styles.formComponents}>
-                <TextField fullWidth required label="Email Address" placeholder="johndoe@example.com" sx={{mb: '1rem'}}/>
-                <TextField fullWidth required label="Message" placeholder="Enter your message!" multiline rows={6} sx={{mb: '1rem'}}/>
-                <Button variant="contained" endIcon={<Send/>}>Send</Button>
+                <TextField fullWidth required label="Email Address" placeholder="johndoe@example.com" onChange={(e) => setEmail(e.target.value)} sx={{mb: '1rem'}}/>
+                <TextField fullWidth required label="Message" placeholder="Enter your message!" onChange={(e) => setMessage(e.target.value)} multiline rows={6} sx={{mb: '1rem'}}/>
+                <Button variant="contained" endIcon={<Send/>} onClick={() => {
+                  const options = {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({email: email, message: message})
+                  }
+                  const req = fetch('/api/sendMessage', options);
+                  req.then((res) => console.log(res.body, res.body.response))
+                }}>Send</Button>
               </div>
             </Box>
           </div>

@@ -24,7 +24,7 @@ export default function Aspirations() {
     <Fade in={true}>
       <div className={styles.Aspirations}>
         <Typography variant='h4' fontFamily='Roboto Slab' mb={'1rem'} textAlign='center' fontWeight={600}>Aspirations and Life Goals</Typography>
-        {aspirationsData.map((entry) => <ParallaxContainer img={entry.img} body={entry.body}></ParallaxContainer>)}
+        {aspirationsData.map((entry, i) => <ParallaxContainer key={i} img={entry.img} body={entry.body}></ParallaxContainer>)}
       </div>
     </Fade>
   </RootLayout>
