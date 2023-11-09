@@ -13,6 +13,7 @@ import Zoom from '@mui/material/Zoom';
 import Fade from '@mui/material/Fade';
 import Biography from '../shared/data/bio.js';
 import RootLayout from '../components/Layout';
+import Snackbar from '@mui/material/Snackbar';
 const headshot = 'https://media.licdn.com/dms/image/D4D03AQF_Sbojz5642w/profile-displayphoto-shrink_400_400/0/1697126489786?e=1704326400&v=beta&t=aN6qvPthhSKZv7eOZw1ODxUyF2Maj5eUU515xY0UZ9E';
 import generalSkills from '../shared/data/generalSkills'
 import { Facebook, LinkedIn, GitHub, Send, Download } from '@mui/icons-material';
@@ -22,6 +23,7 @@ export default function Main() {
   const containerRef = React.useRef(null);
   const [email, setEmail] = React.useState('');
   const [message, setMessage] = React.useState('');
+  const [feedback, setFeedback] = React.useState('');
 
   return (
     <RootLayout>
@@ -81,9 +83,15 @@ export default function Main() {
                     body: JSON.stringify({email: email, message: message})
                   }
                   const req = fetch('/api/sendMessage', options);
-                  req.then((res) => console.log(res.body, res.body.response))
+                  req.then(res => res.json()).then((body) => { console.log(body); setFeedback(body.response)})
                 }}>Send</Button>
               </div>
+              <Snackbar
+                open={feedback != ''}
+                autoHideDuration={4000}
+                message={feedback}
+                onClose={(e)=> setFeedback('')}
+              />
             </Box>
           </div>
         </Fade>
