@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import YouTube from '@mui/icons-material/Youtube';
+import YouTube from '@mui/icons-material/YouTube';
 import Web from '@mui/icons-material/Web';
 import Grow from '@mui/material/Grow';
 
