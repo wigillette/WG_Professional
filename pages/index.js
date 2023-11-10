@@ -14,16 +14,21 @@ import Fade from '@mui/material/Fade';
 import Biography from '../shared/data/bio.js';
 import RootLayout from '../components/Layout';
 import Snackbar from '@mui/material/Snackbar';
+import {send} from "../services/message.js";
 const headshot = 'https://media.licdn.com/dms/image/D4D03AQF_Sbojz5642w/profile-displayphoto-shrink_400_400/0/1697126489786?e=1704326400&v=beta&t=aN6qvPthhSKZv7eOZw1ODxUyF2Maj5eUU515xY0UZ9E';
 import generalSkills from '../shared/data/generalSkills'
 import { Facebook, LinkedIn, GitHub, Send, Download } from '@mui/icons-material';
 import Resume from "../shared/documents/WG_Resume.pdf";
 
 export default function Main() {
-  const containerRef = React.useRef(null);
   const [email, setEmail] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [feedback, setFeedback] = React.useState('');
+
+  const handleMessage = async() => {
+    let feedback = await send(email, message);
+    setFeedback(feedback);
+  }
 
   return (
     <RootLayout>
@@ -74,23 +79,14 @@ export default function Main() {
               <div className={styles.formComponents}>
                 <TextField fullWidth required label="Email Address" placeholder="johndoe@example.com" onChange={(e) => setEmail(e.target.value)} sx={{mb: '1rem'}}/>
                 <TextField fullWidth required label="Message" placeholder="Enter your message!" onChange={(e) => setMessage(e.target.value)} multiline rows={6} sx={{mb: '1rem'}}/>
-                <Button variant="contained" endIcon={<Send/>} onClick={() => {
-                  const options = {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({email: email, message: message})
-                  }
-                  const req = fetch('/api/sendMessage', options);
-                  req.then(res => res.json()).then((body) => { console.log(body); setFeedback(body.response)})
-                }}>Send</Button>
+                <Button variant="contained" endIcon={<Send/>} onClick={handleMessage}>Send</Button>
               </div>
               <Snackbar
                 open={feedback != ''}
                 autoHideDuration={4000}
                 message={feedback}
                 onClose={(e)=> setFeedback('')}
+                sx={{fontFamily: 'Open Sans'}}
               />
             </Box>
           </div>
