@@ -5,4 +5,5 @@ routes
     .add('/', '/')
     .add('coursework', '/coursework')
     .add('experiences', '/experiences')
-    .add('aspirations', '/aspirations');
+    .add('aspirations', '/aspirations')
+    .add('updates', '/updates');

@@ -15,7 +15,7 @@ import Biography from '../shared/data/bio.js';
 import RootLayout from '../components/Layout';
 import Snackbar from '@mui/material/Snackbar';
 import {send} from "../services/message.js";
-const headshot = 'https://media.licdn.com/dms/image/D4D03AQF_Sbojz5642w/profile-displayphoto-shrink_400_400/0/1697126489786?e=1704326400&v=beta&t=aN6qvPthhSKZv7eOZw1ODxUyF2Maj5eUU515xY0UZ9E';
+import headshot from "../shared/images/Headshot.jpg"
 import generalSkills from '../shared/data/generalSkills'
 import { Facebook, LinkedIn, GitHub, Send, Download } from '@mui/icons-material';
 import Resume from "../shared/documents/WG_Resume.pdf";
@@ -37,7 +37,7 @@ export default function Main() {
           <Avatar
             alt='William Gillette'
             className={styles.headshot}
-            src={headshot}
+            src={headshot.src}
             sx={{ width: 250, height: 250, margin: '0 auto', marginBottom: '3vh' }}
           />
         </Zoom>

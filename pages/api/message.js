@@ -14,6 +14,8 @@ const sendMessage = (req, res) => {
     let response = 'Failed to send message.';
     let statusCode = 405;
     if (email && message && message.length > 0 && email.length > 0) {
+        // Send message to email? Or update a database?
+
         response = 'Successfully sent message!';
         statusCode = 200;
     }
