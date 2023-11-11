@@ -13,6 +13,7 @@ import CustomLink from '../../components/CustomLink/CustomLink';
 import Carousel from "../../components/Carousel/Carousel.js";
 import carouselInfo from "../../shared/data/carousel1Info.js";
 import Fade from "@mui/material/Fade";
+import Custom404 from "../404.js";
 
 const getCourseInfo = (courseId) => {
     const semesterData = Object.values(courses).filter((semesterPlan) => {
@@ -44,24 +45,25 @@ const CourseBreadcrumb = ({courseId}) => (
 
 const coursePage = () => {
     const router = useRouter();
-    const courseId = router.query.courseId;
+    if (router.query && router.query.courseId && Object.keys(descriptions).includes(router.query.courseId)) {
+        const courseId = router.query.courseId;
 
-    return (<RootLayout>
-        <Fade in={true}>
-            <div className={styles.coursePage}>
-                <CourseBreadcrumb courseId={courseId} />
-                {Object.keys(descriptions).includes(courseId) ? 
+        return (<RootLayout>
+            <Fade in={true}>
+                <div className={styles.coursePage}>
+                    <CourseBreadcrumb courseId={courseId} />
                     <React.Fragment>
                         <Typography variant='h5' color='rgb(0,0,0)' sx={{fontFamily: 'Roboto Slab', textAlign: 'center'}}>{`${courseId}: ${getCourseInfo(courseId)[1]}`}</Typography>
                         <Divider variant='middle' light sx={{mb: 1, mt: 1}}/>
                         <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans'}}>{descriptions[courseId]}</Typography>
                     </React.Fragment>
-                    : <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans', textAlign: 'center'}}>Invalid Course Id</Typography>
-                }
-                <Carousel images={carouselInfo}/>
-            </div>
-        </Fade>
-    </RootLayout>)
+                    <Carousel images={carouselInfo}/>
+                </div>
+            </Fade>
+        </RootLayout>)
+    } else {
+        return <Custom404/>
+    }
 }
 
 export default coursePage;
