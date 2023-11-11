@@ -1,0 +1,16 @@
+.PostsContainer {
+    width: 80%;
+    max-height: 100vh;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+.postParallax div {
+    height: 30vh;
+}
+
+@media (max-width: 600px) {
+    .postParallax div {
+        height: 10vh;
+    }
+}
