@@ -1,3 +1,3 @@
-const update = <div/>;
+const Update = () => <div/>;
 
-export default update;
+export default Update;
