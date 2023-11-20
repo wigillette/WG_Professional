@@ -86,7 +86,7 @@ export default function TechnicalProject() {
   }
 
   const initLevel = () => {
-    if (gameWords.length > wordsDecoded.length) {
+    if (wordsDecoded.length < gameWords.length) {
       let randomWord = gameWords[Math.floor(Math.random()*gameWords.length)];
       while (randomWord == encryptedMessage || wordsDecoded.includes(randomWord)) {
         randomWord = gameWords[Math.floor(Math.random()*gameWords.length)];
@@ -130,13 +130,18 @@ export default function TechnicalProject() {
     };
   }, [isTimerRunning, timer]);
 
+  React.useEffect(() => {
+    if (wordsDecoded.length > 0) {
+      initLevel();
+    }
+  }, [wordsDecoded])
+
   const verifyDecryption = () => {
     let isAccurate = guess === groundWord;
     if (isAccurate) {
       setFeedback(2) // 2 = correct, 1 = incorrect
       setWordsDecoded([...wordsDecoded, groundWord]);
       setPoints(points + POINTS_PER_CHARACTER*encryptedMessage.length);
-      initLevel();
     } else {
       setFeedback(1);
     }
@@ -176,17 +181,17 @@ export default function TechnicalProject() {
   return (
     <RootLayout>
         <main className={styles.main}>
-          <Typography variant='h3' textAlign='center' gutterBottom fontWeight={500} fontFamily={'Roboto Slab'}>Caesar Cipher Decryption Race!</Typography>
+          <Typography variant='h3' textAlign='center' gutterBottom fontWeight={500} fontSize={'2rem'} fontFamily={'Roboto Slab'}>Caesar Cipher Decryption Race!</Typography>
           <Divider variant='middle' sx={{mb: '1rem'}}/>
           {gameState == 0 ? <Button variant='contained' size='lg' fullWidth endIcon={<RunCircle/>} onClick={initGame} disabled={gameState != 0} sx={{fontSize: '1.25rem'}}>BEGIN</Button> :
             (<Fade in={true}>
             <div className={styles.gameInfo}>
               <LinearProgressWithLabel value={100*(wordsDecoded.length/gameWords.length)} label={`${wordsDecoded.length}/${gameWords.length}`} />
               <Paper elevation={2} sx={{margin: '1rem auto', padding: '1rem'}}>
-                <Typography variant='h5' fontFamily='Open Sans' fontWeight='bold' display={'inline-block'} width={'50%'} textAlign='left'><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Total Points: </span>{points}</Typography>
-                <Typography variant='h5' fontFamily='Open Sans' fontWeight='bold' display={'inline-block'} width={'50%'} textAlign='right'><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Timer: </span>{formatTime(timer)}</Typography>
+                <Typography variant='h5' fontFamily='Open Sans' fontWeight='bold' fontSize='1rem' display={'inline-block'} width={'50%'} textAlign='left'><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Total Points: </span>{points}</Typography>
+                <Typography variant='h5' fontFamily='Open Sans' fontWeight='bold' fontSize='1rem' display={'inline-block'} width={'50%'} textAlign='right'><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Timer: </span>{formatTime(timer)}</Typography>
               </Paper>
-              <Snackbar open={feedback != 0} onClose={(e) => setFeedback(0)} autoHideDuration={6000}>
+              <Snackbar open={feedback != 0} onClose={(e) => setFeedback(0)} autoHideDuration={3000}>
                 <Alert severity={feedback == 2 ? 'success' : 'error'}>{feedback == 2 ? 'You have successfully guessed the word!' : 'Try again! That result is incorrect.'}</Alert>
               </Snackbar>
               <Card sx={{margin: '2rem auto'}} elevation={2}>
@@ -194,7 +199,14 @@ export default function TechnicalProject() {
                   <CopyButton margin={'0.5rem'} word={encryptedMessage}/></Typography>} 
                   subheader={<Typography fontFamily='Open Sans'>Use the Caesar Cipher method to decode the encrypted message!</Typography>}/>
                 <CardContent>
-                    <TextField variant='outlined' fullWidth label={<Typography fontFamily='Open Sans'>Enter the resulting decrypted message here!</Typography>} onChange={(e) => setGuess(e.target.value)} sx={{fontFamily: 'Open Sans'}}/>
+                    <TextField variant='outlined' fullWidth label={<Typography fontFamily='Open Sans'>Enter the resulting decrypted message here!</Typography>} onChange={(e) => setGuess(e.target.value)} onKeyDown={
+                      (e) => {
+                        const keyCode = e.key;
+                        if (keyCode === 'Enter') {
+                          verifyDecryption();
+                        }
+                    }
+                    } sx={{fontFamily: 'Open Sans'}}/>
                 </CardContent>
                 <CardActions>
                     <Button variant='contained' startIcon={<CheckCircle/>} onClick={verifyDecryption} sx={{fontFamily: 'Open Sans', fontWeight: '600'}}>VERIFY</Button>
