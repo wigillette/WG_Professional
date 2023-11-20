@@ -5,6 +5,16 @@
     margin-top: 1rem;
 }
 
+.PaginationContainer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.PaginationContainer nav {
+    display: flex;
+    justify-content: center;
+}
+
 .postParallax div {
     height: 30vh;
 }
