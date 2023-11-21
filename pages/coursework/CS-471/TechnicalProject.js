@@ -199,7 +199,7 @@ export default function TechnicalProject() {
                   <CopyButton margin={'0.5rem'} word={encryptedMessage}/></Typography>} 
                   subheader={<Typography fontFamily='Open Sans'>Use the Caesar Cipher method to decode the encrypted message!</Typography>}/>
                 <CardContent>
-                    <TextField variant='outlined' fullWidth label={<Typography fontFamily='Open Sans'>Enter the resulting decrypted message here!</Typography>} onChange={(e) => setGuess(e.target.value)} onKeyDown={
+                    <TextField variant='outlined' fullWidth label={<Typography fontFamily='Open Sans'>Final Decrypted Message</Typography>} onChange={(e) => setGuess(e.target.value)} onKeyDown={
                       (e) => {
                         const keyCode = e.key;
                         if (keyCode === 'Enter') {
@@ -209,17 +209,17 @@ export default function TechnicalProject() {
                     } sx={{fontFamily: 'Open Sans'}}/>
                 </CardContent>
                 <CardActions>
-                    <Button variant='contained' startIcon={<CheckCircle/>} onClick={verifyDecryption} sx={{fontFamily: 'Open Sans', fontWeight: '600'}}>VERIFY</Button>
+                    <Button variant='contained' startIcon={<CheckCircle/>} onClick={verifyDecryption} sx={{fontFamily: 'Open Sans', fontWeight: '600', margin: '0.5rem'}}>SUBMIT</Button>
                 </CardActions>
               </Card>
               <Paper elevation={2} sx={{margin: '1rem auto', padding: '1rem'}}>
                 <Typography fontFamily='Roboto Slab' textAlign='center' fontSize='1.2rem' fontWeight='500' gutterBottom>Caesar Shift Widget</Typography>
                 <Slider defaultValue={0} min={0} max={25} marks step={1} valueLabelDisplay='auto' onChange={(e) => setWidgetShift(e.target.value)} sx={{mb: '1rem'}} />
-                <Stack direction='row' justifyContent='space-evenly'>
-                  <TextField variant='filled' label='Character Input' onChange={(e) => setWidgetInput(e.target.value)} sx={{fontFamily: 'Open Sans'}}/>
+                <Stack direction='row' justifyContent='space-evenly' spacing='1rem'>
+                  <TextField variant='filled' label='Text Input' onChange={(e) => setWidgetInput(e.target.value)} sx={{fontFamily: 'Open Sans'}}/>
                   <div>
                     <TextField variant='filled' label='Post-Shift Output' InputProps={{readOnly: true}} value={encrypt(widgetInput, widgetShift)} sx={{fontFamily: 'Open Sans'}}/>
-                    <CopyButton margin={'0.5rem'} word={encrypt(widgetInput, widgetShift)}/>
+                    <CopyButton margin={'0.1rem'} word={encrypt(widgetInput, widgetShift)}/>
                   </div>
                 </Stack>
               </Paper>
