@@ -25,6 +25,9 @@ import IconButton from '@mui/material/IconButton';
 import ContentCopy from '@mui/icons-material/ContentCopy';
 import allWords from '../../../shared/data/technical-words'
 
+/**
+ * Custom Progress Bar
+ */
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
@@ -37,12 +40,16 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-// Custom Alert
+/**
+ * Custom Alert
+ */
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-// Custom Progress Label
+/**
+ * Custom Progress Label
+ */ 
 const LinearProgressWithLabel = ({value, label}) => {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', mb: '1rem' }}>
@@ -73,6 +80,12 @@ export default function TechnicalProject() {
   const [isTimerRunning, setIsTimerRunning] = React.useState(false);
 
 
+  /**
+   * Encrypts a word using a Caesar shift
+   * @param {string} word The word 
+   * @param {int} shiftValue The value by which to shift 
+   * @returns The encrypted word
+   */
   const encrypt = (word, shiftValue) => {
     return word.split('').map((char) => {
       let toReturn = char;
@@ -85,6 +98,9 @@ export default function TechnicalProject() {
     }).join('');
   }
 
+  /**
+   * Chooses a new word and randomly encrypts it if less than ten words have been encrypted
+   */
   const initLevel = () => {
     if (wordsDecoded.length < gameWords.length) {
       let randomWord = gameWords[Math.floor(Math.random()*gameWords.length)];
@@ -100,16 +116,28 @@ export default function TechnicalProject() {
     }
   }
 
+  /**
+   * Copies a string to the client's clipboard
+   * @param {string} word The text to encrypt
+   */
   const copy = async (word) => {
     await navigator.clipboard.writeText(word);
   }
 
+  /**
+   * Formats seconds into MM:SS
+   * @param {int} timeInSeconds The amount of seconds 
+   * @returns The seconds in MM:SS
+   */
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
     return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   };
 
+  /**
+   * Updates the timer and ends the game when there is no time left
+   */
   React.useEffect(() => {
     if (!isTimerRunning || timer <= 0 || gameState != 2) {
       return;
@@ -130,12 +158,18 @@ export default function TechnicalProject() {
     };
   }, [isTimerRunning, timer]);
 
+  /**
+   * Initializes the next level when the list of decoded words updates
+   */
   React.useEffect(() => {
     if (wordsDecoded.length > 0) {
       initLevel();
     }
   }, [wordsDecoded])
 
+  /**
+   * Checks if a user guessed the ground truth word, updating the list of decoded words and their points if so
+   */
   const verifyDecryption = () => {
     let isAccurate = guess === groundWord;
     if (isAccurate) {
@@ -147,6 +181,9 @@ export default function TechnicalProject() {
     }
   }
 
+  /**
+   * Selects a random sample of the entire words library, initializing the first level and starting the timer
+   */
   const initGame = () => {
     const wordsSubset = [];
     for (let i=0; i<10; i++) {
@@ -158,6 +195,9 @@ export default function TechnicalProject() {
     setIsTimerRunning(true);
   }
 
+  /**
+   * Resets all the variables to their initial values
+   */
   const resetGame = () => {
     setTimer(GAME_TIME)
     setPoints(0);
@@ -172,6 +212,11 @@ export default function TechnicalProject() {
     setGameState(0);
   }
 
+  /**
+   * Copy Button Component
+   * @param {[]} props: margin: the amount for left margin, word: the word to copy 
+   * @returns 
+   */
   const CopyButton = ({margin, word}) => (
     <span style={{marginLeft: margin}}>
       <IconButton size='small' color='primary' onClick={() => copy(word)}><ContentCopy/></IconButton>
