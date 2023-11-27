@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import styles from '../../../styles/TechnicalProject.module.css'
-import RootLayout from '../../../components/Layout';
+import styles from '../../../../styles/TechnicalProject.module.css'
+import RootLayout from '../../../../components/Layout';
 import Typography from '@mui/material/Typography'
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -23,7 +23,7 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ContentCopy from '@mui/icons-material/ContentCopy';
-import allWords from '../../../shared/data/technical-words'
+import allWords from '../../../../shared/data/technical-words'
 
 /**
  * Custom Progress Bar
@@ -236,13 +236,28 @@ export default function TechnicalProject() {
                 <Typography variant='h5' fontFamily='Open Sans' fontWeight='bold' fontSize='1rem' display={'inline-block'} width={'50%'} textAlign='left'><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Total Points: </span>{points}</Typography>
                 <Typography variant='h5' fontFamily='Open Sans' fontWeight='bold' fontSize='1rem' display={'inline-block'} width={'50%'} textAlign='right'><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Timer: </span>{formatTime(timer)}</Typography>
               </Paper>
-              <Snackbar open={feedback != 0} onClose={(e) => setFeedback(0)} autoHideDuration={3000}>
-                <Alert severity={feedback == 2 ? 'success' : 'error'}>{feedback == 2 ? 'You have successfully guessed the word!' : 'Try again! That result is incorrect.'}</Alert>
-              </Snackbar>
+              
+              <Paper elevation={2} sx={{margin: '1rem auto', padding: '1rem'}}>
+                <Typography variant='h5' fontFamily='Roboto Slab' textAlign='center' fontWeight='500' gutterBottom>Caesar Shift Widget</Typography>
+                <Typography variant='h6' fontFamily='Open Sans' fontWeight='600' gutterBottom><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Encrypted Message: </span>{encryptedMessage}
+                  <CopyButton margin={'0.5rem'} word={encryptedMessage}/>
+                </Typography>
+                <div style={{margin: '0 auto'}}>
+                  <Typography variant='h6' fontFamily='Roboto Slab' textAlign='center' gutterBottom>Shift Slider</Typography>
+                  <Slider defaultValue={0} min={0} max={25} marks step={1} valueLabelDisplay='auto' onChange={(e) => setWidgetShift(e.target.value)} sx={{mb: '1rem'}} />
+                </div>
+                
+                <Stack direction='row' justifyContent='space-evenly' spacing='1rem'>
+                  <TextField variant='filled' label='Text Input' onChange={(e) => setWidgetInput(e.target.value)} sx={{fontFamily: 'Open Sans'}}/>
+                  <div>
+                    <TextField variant='filled' label='Post-Shift Output' InputProps={{readOnly: true}} value={encrypt(widgetInput, widgetShift)} sx={{fontFamily: 'Open Sans'}}/>
+                    <CopyButton margin={'0.1rem'} word={encrypt(widgetInput, widgetShift)}/>
+                  </div>
+                </Stack>
+              </Paper>
               <Card sx={{margin: '2rem auto'}} elevation={2}>
-                <CardHeader title={<Typography variant='h6' fontFamily='Open Sans' fontWeight='600' gutterBottom><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Encrypted Message: </span>{encryptedMessage}
-                  <CopyButton margin={'0.5rem'} word={encryptedMessage}/></Typography>} 
-                  subheader={<Typography fontFamily='Open Sans'>Use the Caesar Cipher method to decode the encrypted message!</Typography>}/>
+                <CardHeader title={<Typography variant='h5' fontFamily='Roboto Slab' fontWeight={500} gutterBottom>Instructions</Typography>} 
+                  subheader={<Typography fontFamily='Open Sans'>Copy the provided encrypted message into the left-hand box of the Caesar Cipher widget, use the slider to modify the Caesar shift, and analyze the resulting message! Upon determining the decrypted message, enter the result in the box below. Successfully decrypt ten words before the timer runs out to win.</Typography>}/>
                 <CardContent>
                     <TextField variant='outlined' fullWidth label={<Typography fontFamily='Open Sans'>Final Decrypted Message</Typography>} onChange={(e) => setGuess(e.target.value)} onKeyDown={
                       (e) => {
@@ -257,17 +272,9 @@ export default function TechnicalProject() {
                     <Button variant='contained' startIcon={<CheckCircle/>} onClick={verifyDecryption} sx={{fontFamily: 'Open Sans', fontWeight: '600', margin: '0.5rem'}}>SUBMIT</Button>
                 </CardActions>
               </Card>
-              <Paper elevation={2} sx={{margin: '1rem auto', padding: '1rem'}}>
-                <Typography fontFamily='Roboto Slab' textAlign='center' fontSize='1.2rem' fontWeight='500' gutterBottom>Caesar Shift Widget</Typography>
-                <Slider defaultValue={0} min={0} max={25} marks step={1} valueLabelDisplay='auto' onChange={(e) => setWidgetShift(e.target.value)} sx={{mb: '1rem'}} />
-                <Stack direction='row' justifyContent='space-evenly' spacing='1rem'>
-                  <TextField variant='filled' label='Text Input' onChange={(e) => setWidgetInput(e.target.value)} sx={{fontFamily: 'Open Sans'}}/>
-                  <div>
-                    <TextField variant='filled' label='Post-Shift Output' InputProps={{readOnly: true}} value={encrypt(widgetInput, widgetShift)} sx={{fontFamily: 'Open Sans'}}/>
-                    <CopyButton margin={'0.1rem'} word={encrypt(widgetInput, widgetShift)}/>
-                  </div>
-                </Stack>
-              </Paper>
+              <Snackbar open={feedback != 0} onClose={(e) => setFeedback(0)} autoHideDuration={3000}>
+                <Alert severity={feedback == 2 ? 'success' : 'error'}>{feedback == 2 ? 'You have successfully guessed the word!' : 'Try again! That result is incorrect.'}</Alert>
+              </Snackbar>
             </div>
             </Fade>)
         }
