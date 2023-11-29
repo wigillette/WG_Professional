@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../../../styles/TechnicalProject.module.css'
 import RootLayout from '../../../../components/Layout';
 import Box from '@mui/system/Box';
-
+import Visibility from "@mui/icons-material/Visibility.js";
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -25,7 +25,7 @@ const ReportContainer = ({reportName, fileName, projectLink}) => (
 		<div style={{textAlign: 'center'}} >
 			<embed className={styles.documentEmbed} src={fileName} type='application/pdf' scale='tofit'></embed>
 		</div>
-		{projectLink && <Button sx={{marginTop: '1rem'}} variant='contained' href={projectLink}>Project Link</Button>}
+		{projectLink && <Button variant='contained' href={projectLink} startIcon={<Visibility/>} sx={{marginTop: '1rem', fontFamily: 'Open Sans'}}>VIEW PROJECT</Button>}
 	</div>
 )
 

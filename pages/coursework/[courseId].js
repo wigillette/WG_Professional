@@ -2,11 +2,13 @@ import React from "react";
 import RootLayout from "../../components/Layout.js";
 import { useRouter } from "next/router.js";
 import styles from "../../styles/coursePage.module.css";
-import {courses, descriptions} from "../../shared/data/courses.js";
+import {courses, descriptions, portfolios} from "../../shared/data/courses.js";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
+import Button from '@mui/material/Button';
 import CalendarMonth from "@mui/icons-material/CalendarMonth.js";
+import Visibility from "@mui/icons-material/Visibility.js";
 import School from '@mui/icons-material/School.js';
 import NavigateNext from '@mui/icons-material/NavigateNext.js';
 import CustomLink from '../../components/CustomLink/CustomLink';
@@ -52,11 +54,12 @@ const coursePage = () => {
             <Fade in={true}>
                 <div className={styles.coursePage}>
                     <CourseBreadcrumb courseId={courseId} />
-                    <React.Fragment>
-                        <Typography variant='h5' color='rgb(0,0,0)' sx={{fontFamily: 'Roboto Slab', textAlign: 'center'}}>{`${courseId}: ${getCourseInfo(courseId)[1]}`}</Typography>
+                    <div>
+                        <Typography variant='h5' color='rgb(0,0,0)' sx={{fontFamily: 'Roboto Slab', textAlign: 'center'}} gutterBottom>{`${courseId}: ${getCourseInfo(courseId)[1]}`}</Typography>
                         <Divider variant='middle' light sx={{mb: 1, mt: 1}}/>
-                        <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans'}}>{descriptions[courseId]}</Typography>
-                    </React.Fragment>
+                        <Typography variant='body1' color='inherit' sx={{fontFamily: 'Open Sans'}} mb='1rem'>{descriptions[courseId]}</Typography>
+                        {Object.keys(portfolios).includes(courseId) && <Button variant='contained' sx={{fontFamily: 'Open Sans'}} startIcon={<Visibility/>} href={`/coursework/${courseId}/Portfolio`}>VIEW PORTFOLIO</Button>}
+                    </div>
                     <Carousel images={carouselInfo}/>
                 </div>
             </Fade>
