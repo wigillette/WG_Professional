@@ -242,7 +242,7 @@ export default function TechnicalProject() {
                 <Typography variant='h6' fontFamily='Open Sans' fontWeight='600' gutterBottom><span style={{fontFamily: 'Roboto Slab', fontWeight: '500'}}>Encrypted Message: </span>{encryptedMessage}
                   <CopyButton margin={'0.5rem'} word={encryptedMessage}/>
                 </Typography>
-                <div style={{margin: '0 auto'}}>
+                <div style={{margin: '1rem auto'}}>
                   <Typography variant='h6' fontFamily='Roboto Slab' textAlign='center' gutterBottom>Shift Slider</Typography>
                   <Slider defaultValue={0} min={0} max={25} marks step={1} valueLabelDisplay='auto' onChange={(e) => setWidgetShift(e.target.value)} sx={{mb: '1rem'}} />
                 </div>
