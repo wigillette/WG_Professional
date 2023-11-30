@@ -1,8 +1,8 @@
 import React from "react";
-import RootLayout from "../../components/Layout.js";
+import RootLayout from "../../../components/Layout.js";
 import { useRouter } from "next/router.js";
-import styles from "../../styles/coursePage.module.css";
-import {courses, descriptions, portfolios} from "../../shared/data/courses.js";
+import styles from "../../../styles/coursePage.module.css";
+import {courses, descriptions, portfolios} from "../../../shared/data/courses.js";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
@@ -11,11 +11,11 @@ import CalendarMonth from "@mui/icons-material/CalendarMonth.js";
 import Visibility from "@mui/icons-material/Visibility.js";
 import School from '@mui/icons-material/School.js';
 import NavigateNext from '@mui/icons-material/NavigateNext.js';
-import CustomLink from '../../components/CustomLink/CustomLink';
-import Carousel from "../../components/Carousel/Carousel.js";
-import carouselInfo from "../../shared/data/carousel1Info.js";
+import CustomLink from '../../../components/CustomLink/CustomLink.js';
+import Carousel from "../../../components/Carousel/Carousel.js";
+import carouselInfo from "../../../shared/data/carousel1Info.js";
 import Fade from "@mui/material/Fade";
-import Custom404 from "../404.js";
+import Custom404 from "../../404.js";
 
 const getCourseInfo = (courseId) => {
     const semesterData = Object.values(courses).filter((semesterPlan) => {
@@ -34,10 +34,9 @@ const CourseBreadcrumb = ({courseId}) => (
                 Coursework
             </CustomLink>
             <Typography
-                className={styles.currentCoursePage}
                 sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Roboto Slab', fontSize: '0.9rem'}}
                 color="text.primary"
-                >
+            >
                 <School sx={{ mr: 0.5 }} fontSize="inherit" />
                 {courseId}
             </Typography>

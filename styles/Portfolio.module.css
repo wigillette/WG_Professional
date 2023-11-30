@@ -1,0 +1,34 @@
+.ReportContainer {
+    margin: 2rem;
+    height: 80vh;
+}
+.ReportContainer, .VideoContainer {
+    width: 40%;
+}
+
+.VideoContainer {
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    height: 40vh;
+}
+
+.courseBreadcrumb {
+    width: 100%;
+    height: 10%;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .ReportContainer, .VideoContainer {
+        width: 100%;
+        height: 30vh;
+    }
+    .courseBreadcrumb {
+        font-size: 1rem;
+    }
+}
+
+.documentEmbed {
+    width: 100%;
+    height: 100%;
+}

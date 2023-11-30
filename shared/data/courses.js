@@ -1,3 +1,22 @@
+import Presentation from '../documents/WG_Cryptography_Presentation.pdf';
+import AssessmentPlan from '../documents/WG_Cryptography_Assessment_Plan.pdf';
+import LightningTalk from '../documents/WG_Cryptography_Lightning_Talk_2.pdf';
+import POGILActivity from '../documents/WG_Cryptography_POGIL_Activity.pdf';
+import ServiceLearningDraft1 from '../documents/WG_Cryptography_Service_Learning_Draft1.pdf';
+import TechnicalProject from '../documents/WG_Cryptography_Technical_Project.pdf';
+import UBDWritten from '../documents/WG_Cryptography_UbD_Written.pdf';
+import UDLWritten from '../documents/WG_Cryptography_UDL_Written.pdf';
+import UnpluggedActivity from '../documents/WG_Cryptography_Unplugged_Activity.pdf';
+import SELASCII from '../documents/WG_SEL_ASCII.pdf'
+import ServiceLearningDraft2 from '../documents/WG_Cryptography_Service_Learning_Draft2.pdf'
+import DegreeProposal from '../documents/CS375_ProjectProposal.pdf'
+import DegreeRequirements from '../documents/CS375_ProjectRequirements.pdf'
+import DegreeDesignReport from '../documents/CS375_DesignReport.pdf'
+import DegreeTestingPlan from '../documents/CS375_TestingPlan.pdf'
+import DegreeFinalDocumentation from '../documents/CS375_FinalDocumentation.pdf'
+import DegreeFinalPresentation from '../documents/CS375_FinalPresentation.pdf'
+
+
 export const courses = {
     F2020: [
         ['CS-174', 'Object Oriented Programming', 'A+'],
@@ -113,5 +132,35 @@ export const relevantCourses = {
 }
 
 export const portfolios = {
-    'CS-471': true
+    'CS-471': {
+        title: 'CS-471 Introductory Cryptography Lesson Portfolio',
+        description: 'Below is a collection of pedagogical activities related to introductory cryptography that I developed during the Fall 2023 semester in my CS-471 course.',
+        documents: [
+            ['Service Learning Project Final Draft', ServiceLearningDraft2], 
+            ['Preliminary Talk', LightningTalk], 
+            ['Understanding by Design Framework', UBDWritten], 
+            ['Universal Design for Learning Principles', UDLWritten], 
+            ['Service Learning Project Rough Draft', ServiceLearningDraft1],
+            ['Introductory Presentation', Presentation], 
+            ['Caesar Shift Technical Project', TechnicalProject, '/coursework/CS-471/Portfolio/TechnicalProject'], 
+            ['Caesar Shift Unplugged Activity', UnpluggedActivity], ['Cryptographic Method POGIL Activity', POGILActivity], 
+            ['Introductory Cryptography Assessments', AssessmentPlan], 
+            ['Social Emotional Learning (SEL) with ASCII Character Encryption', SELASCII]
+        ]
+    },
+    'CS-375': {
+        title: 'CS-375 Degree Planner Application Documentation',
+        description: 'Below is a collection of software documents drafted in the development stage of my Degree Planner Application.',
+        documents: [
+            ['Project Proposal', DegreeProposal],
+            ['Requirements Report', DegreeRequirements],
+            ['Design Report', DegreeDesignReport],
+            ['User Acceptance Testing Plan', DegreeTestingPlan],
+            ['Final Documentation', DegreeFinalDocumentation],
+            ['Project Presentation', DegreeFinalPresentation]
+        ],
+        videos: [
+            ['Usage Demonstration', 'https://www.youtube.com/embed/o9z4vJPbrN0']
+        ]
+    }
 }
