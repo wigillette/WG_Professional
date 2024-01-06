@@ -60,10 +60,10 @@ export const courses = {
         ['STAT-242W', 'Statistics 2', 'A']
     ],
     F2023: [
-        ['CS-471', 'Computer Science Pedagogy', 'TBD'],
-        ['MATH-311', 'Real Analysis 1', 'TBD'],
-        ['MCS-315', 'Media Ethics', 'TBD'],
-        ['ECON-101', 'Microeconomics', 'TBD']
+        ['CS-471', 'Computer Science Pedagogy', 'A+'],
+        ['MATH-311', 'Real Analysis 1', 'A'],
+        ['MCS-315', 'Media Ethics', 'A'],
+        ['ECON-101', 'Microeconomics', 'A+']
     ],
     S2024: [
         ['MATH-335', 'Abstract Algebra', 'TBD'],
